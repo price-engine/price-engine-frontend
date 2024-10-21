@@ -98,6 +98,13 @@ main {
   font-size: 18px;
   cursor: pointer;
 }
+.card h4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 .app-link {
   color: #61dafb;
 }
