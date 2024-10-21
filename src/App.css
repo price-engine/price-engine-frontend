@@ -1,10 +1,21 @@
-.App {
+:root {
+  --dark-green: #339462;
+  --light-green: #31d681;
+}
+* {
+  box-sizing: border-box;
+}
+.app {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  padding: 0 15%;
+  background-color: #f7f7f7;
+  min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-logo {
+  height: 280px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,26 +24,80 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-header {
   display: flex;
-  flex-direction: column;
+  gap: 8px;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-header-top {
+  display: flex;
+  gap: 8px;
+}
+.app-header-bottom {
+  display: flex;
+  gap: 8px;
+}
+.app-header-bottom .combobox {
+  flex: 1;
+}
+#search-input {
+  flex: 1;
+  outline: none;
+  border-radius: 6px;
+  border-style: solid;
+  padding: 6px;
+  font-size: 18px;
+}
+#search-input:focus {
+  border: 2px solid var(--light-green);
+}
+input[type="number"] {
+  outline: none;
+  border-radius: 6px;
+  border-style: solid;
+  padding: 6px;
+  font-size: 18px;
+}
+input[type="number"]:focus {
+  border: 2px solid var(--light-green);
+}
+.combobox {
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  color: var(--dark-green);
+  font-size: 18px;
+}
+main {
+  flex: 1;
+}
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+.card {
+  border: 2px solid var(--dark-green);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+.card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  mix-blend-mode: multiply;
+}
+.card button {
+  font-size: 18px;
+  cursor: pointer;
+}
+.app-link {
+  color: #61dafb;
 }
