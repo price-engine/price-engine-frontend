@@ -66,6 +66,7 @@ function App() {
     return () => {
       window.removeEventListener("scroll", handleScrolling);
     };
+    // eslint-disable-next-line
   }, []);
 
   return (
