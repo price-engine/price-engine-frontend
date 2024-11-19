@@ -66,8 +66,7 @@ function App() {
     return () => {
       window.removeEventListener("scroll", handleScrolling);
     };
-    // eslint-disable-next-line
-  }, []);
+  }, [selectedCategory, selectedGovernorate, selectedSort, minPrice, maxPrice]);
 
   return (
     <div className="app">
