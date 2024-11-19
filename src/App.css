@@ -85,6 +85,8 @@ main {
   gap: 12px;
 }
 .card {
+  display: flex;
+  flex-direction: column;
   border: 2px solid var(--dark-green);
   border-radius: 6px;
   padding: 8px;
@@ -93,6 +95,9 @@ main {
   width: 100%;
   aspect-ratio: 1/1;
   mix-blend-mode: multiply;
+}
+.card .card-price{
+  margin-top: auto;
 }
 .card button {
   font-size: 18px;
