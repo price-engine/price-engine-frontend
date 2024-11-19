@@ -87,7 +87,7 @@ main {
 .card {
   border: 2px solid var(--dark-green);
   border-radius: 6px;
-  padding: 4px 8px;
+  padding: 8px;
 }
 .card img {
   width: 100%;
@@ -101,8 +101,8 @@ main {
 .card h4 {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* number of lines to show */
-  line-clamp: 3;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 .app-link {
