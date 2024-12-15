@@ -60,12 +60,8 @@ function App() {
   }
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScrolling, {
-      passive: true,
-    });
-    return () => {
-      window.removeEventListener("scroll", handleScrolling);
-    };
+    window.addEventListener("scroll", handleScrolling, { passive: true });
+    return () => window.removeEventListener("scroll", handleScrolling);
   }, [selectedCategory, selectedGovernorate, selectedSort, minPrice, maxPrice]);
 
   return (
