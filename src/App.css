@@ -91,17 +91,13 @@ main {
   border-radius: 6px;
   padding: 8px;
 }
-.card img {
+.card .product-image {
   width: 100%;
   aspect-ratio: 1/1;
   mix-blend-mode: multiply;
 }
-.card .card-price{
+.card .card-price {
   margin-top: auto;
-}
-.card button {
-  font-size: 18px;
-  cursor: pointer;
 }
 .card h4 {
   overflow: hidden;
@@ -109,6 +105,29 @@ main {
   -webkit-line-clamp: 2; /* number of lines to show */
   line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+.card .links-container {
+  display: flex;
+  height: 40px;
+  gap: 8px;
+}
+.card .shop-logo-container {
+  display: flex;
+  align-items: center;
+}
+.card .shop-logo {
+  width: 60px;
+  max-height: 100%;
+  filter: drop-shadow(0px 0.5px 0 black);
+}
+.card .primary-btn {
+  flex: 1;
+}
+.card button {
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  cursor: pointer;
 }
 .app-link {
   color: #61dafb;
