@@ -5,6 +5,9 @@
 * {
   box-sizing: border-box;
 }
+img {
+  color: transparent;
+}
 .app {
   display: flex;
   flex-direction: column;
