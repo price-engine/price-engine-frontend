@@ -29,12 +29,6 @@ img {
   height: 280px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .app-header {
   display: flex;
   gap: 8px;
@@ -48,15 +42,15 @@ img {
   flex: 1;
   gap: 8px;
 }
-.app-header-top {
+.price-inputs-container {
   display: flex;
   gap: 8px;
 }
-.app-header-bottom {
+.governorates-categories-container {
   display: flex;
   gap: 8px;
 }
-.app-header-bottom .combobox {
+.governorates-categories-container .combobox {
   flex: 1;
 }
 #search-input {
@@ -102,4 +96,30 @@ input:focus {
 }
 .app-link {
   color: #61dafb;
+}
+
+@media (max-width: 1583px) {
+  .governorates-categories-container {
+    flex-direction: column;
+  }
+}
+@media (max-width: 1085px) {
+  .app-header {
+    flex-direction: column;
+    margin-bottom: 24px;
+    .inputs-container {
+      align-self: stretch;
+    }
+  }
+}
+@media (max-width: 674px) {
+  .price-inputs-container {
+    flex-wrap: wrap;
+    .combobox.sort {
+      flex: 1 0 100%;
+    }
+    input{
+      flex: 1;
+    }
+  }
 }
