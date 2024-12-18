@@ -71,7 +71,13 @@ function App() {
         <img className="app-logo" src={logo} alt="" />
         <div className="inputs-container">
           <div className="app-header-top">
-            <input id="search-input" placeholder="Search Price-Engine" name="search" onKeyUp={handleSearchInput} />
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Search Price-Engine"
+              name="search"
+              onKeyUp={handleSearchInput}
+            />
             <Select
               className="combobox sort"
               options={sortOptions}
