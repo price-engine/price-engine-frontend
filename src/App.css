@@ -5,8 +5,16 @@
 * {
   box-sizing: border-box;
 }
+*:focus-within {
+  /*Removes blue highlight when tapping on a touch device*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  /*Removes the 1px blue broder around focused elements*/
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
 img {
-  color: transparent;
+  color: transparent; /*Fixes firefox loading img alt before image loading*/
 }
 .app {
   display: flex;
@@ -54,29 +62,18 @@ img {
 #search-input {
   flex: 1;
   outline: none;
-  border-radius: 6px;
-  border-style: solid;
   padding: 6px;
   font-size: 18px;
-}
-#search-input:focus {
-  border: 2px solid var(--light-green);
 }
 input[type="number"] {
   outline: none;
   border-radius: 6px;
-  border-style: solid;
   padding: 6px;
   font-size: 18px;
 }
-input[type="number"]:focus {
-  border: 2px solid var(--light-green);
-}
 .combobox {
-  outline: none;
-  border: none;
   border-radius: 6px;
-  color: var(--dark-green);
+  color: black;
   font-size: 18px;
 }
 main {
@@ -86,6 +83,13 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 12px;
+}
+input {
+  border: 2px solid hsl(0, 0%, 90%);
+  border-radius: 6px;
+}
+input:focus {
+  border: 2px solid var(--light-green);
 }
 .app-link {
   color: #61dafb;
