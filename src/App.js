@@ -70,14 +70,69 @@ function App() {
       <header className="app-header">
         <img className="app-logo" src={logo} alt="" />
         <div className="inputs-container">
-          <div className="app-header-top">
-            <input
-              id="search-input"
-              type="search"
-              placeholder="Search Price-Engine"
-              name="search"
-              onKeyUp={handleSearchInput}
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Search Price-Engine"
+            name="search"
+            onKeyUp={handleSearchInput}
+          />
+          <div className="governorates-categories-container">
+            <Select
+              className="combobox"
+              options={governorates}
+              onChange={setSelectedGovernorate}
+              value={selectedGovernorate}
+              isMulti={true}
+              placeholder="All Governorates"
+              theme={(theme) => {
+                console.log(theme);
+                return {
+                  ...theme,
+                  colors: {
+                    ...theme.colors,
+                    primary25: "var(--light-green)",
+                    // neutral50: "var(--light-green)", //chosen option color
+                    // neutral20: "var(--light-green)", //arrow color
+                  },
+                };
+              }}
+              styles={{
+                control: (baseStyles, state) => {
+                  return {
+                    ...baseStyles,
+                    border: state.menuIsOpen ? "2px solid var(--light-green)" : "2px solid hsl(0, 0%, 90%)",
+                    borderRadius: "6px",
+                    color: state.isFocused ? "black" : "red",
+                    "&:hover": {
+                      borderColor: "var(--light-green)",
+                    },
+                  };
+                },
+              }}
             />
+            <Select
+              className="combobox"
+              options={categories}
+              onChange={setSelectedCategory}
+              value={selectedCategory}
+              isMulti={true}
+              placeholder="All Categories"
+              styles={{
+                control: (baseStyles, state) => {
+                  return {
+                    ...baseStyles,
+                    border: "2px solid hsl(0, 0%, 90%)",
+                    borderRadius: "6px",
+                    "&:hover": {
+                      borderColor: "var(--light-green)",
+                    },
+                  };
+                },
+              }}
+            />
+          </div>
+          <div className="price-inputs-container">
             <Select
               className="combobox sort"
               options={sortOptions}
@@ -115,63 +170,6 @@ function App() {
               name="maxPrice"
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
-            />
-          </div>
-          <div className="app-header-bottom">
-            <Select
-              className="combobox"
-              options={governorates}
-              onChange={setSelectedGovernorate}
-              value={selectedGovernorate}
-              isMulti={true}
-              placeholder="All Governorates"
-              theme={(theme) => {
-                console.log(theme);
-                return {
-                  ...theme,
-                  borderRadius: 0,
-                  colors: {
-                    ...theme.colors,
-                    primary25: "var(--light-green)",
-                    // neutral50: "var(--light-green)", //chosen option color
-                    // neutral20: "var(--light-green)", //arrow color
-                  },
-                };
-              }}
-              styles={{
-                control: (baseStyles, state) => {
-                  return {
-                    ...baseStyles,
-                    border: "2px solid hsl(0, 0%, 90%)",
-                    borderRadius: "6px",
-                    color: state.isFocused ? "black" : "red",
-                    "&:hover": {
-                      borderColor: "var(--light-green)",
-                    },
-                  };
-                },
-              }}
-            />
-            <Select
-              className="combobox"
-              options={categories}
-              onChange={setSelectedCategory}
-              value={selectedCategory}
-              isMulti={true}
-              placeholder="All Categories"
-              styles={{
-                control: (baseStyles, state) => {
-                  return {
-                    ...baseStyles,
-                    border: "2px solid hsl(0, 0%, 90%)",
-                    borderRadius: "6px",
-                    color: state.isFocused ? "black" : "red",
-                    "&:hover": {
-                      borderColor: "var(--light-green)",
-                    },
-                  };
-                },
-              }}
             />
           </div>
         </div>
