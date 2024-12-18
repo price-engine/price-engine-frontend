@@ -78,6 +78,19 @@ function App() {
               value={selectedSort}
               onChange={setSelectedSort}
               placeholder="Sort by"
+              styles={{
+                control: (baseStyles, state) => {
+                  return {
+                    ...baseStyles,
+                    border: "2px solid hsl(0, 0%, 90%)",
+                    borderRadius: "6px",
+                    color: state.isFocused ? "black" : "red",
+                    "&:hover": {
+                      borderColor: "var(--light-green)",
+                    },
+                  };
+                },
+              }}
             />
             <input
               type="number"
@@ -106,6 +119,32 @@ function App() {
               value={selectedGovernorate}
               isMulti={true}
               placeholder="All Governorates"
+              theme={(theme) => {
+                console.log(theme);
+                return {
+                  ...theme,
+                  borderRadius: 0,
+                  colors: {
+                    ...theme.colors,
+                    primary25: "var(--light-green)",
+                    // neutral50: "var(--light-green)", //chosen option color
+                    // neutral20: "var(--light-green)", //arrow color
+                  },
+                };
+              }}
+              styles={{
+                control: (baseStyles, state) => {
+                  return {
+                    ...baseStyles,
+                    border: "2px solid hsl(0, 0%, 90%)",
+                    borderRadius: "6px",
+                    color: state.isFocused ? "black" : "red",
+                    "&:hover": {
+                      borderColor: "var(--light-green)",
+                    },
+                  };
+                },
+              }}
             />
             <Select
               className="combobox"
@@ -114,6 +153,19 @@ function App() {
               value={selectedCategory}
               isMulti={true}
               placeholder="All Categories"
+              styles={{
+                control: (baseStyles, state) => {
+                  return {
+                    ...baseStyles,
+                    border: "2px solid hsl(0, 0%, 90%)",
+                    borderRadius: "6px",
+                    color: state.isFocused ? "black" : "red",
+                    "&:hover": {
+                      borderColor: "var(--light-green)",
+                    },
+                  };
+                },
+              }}
             />
           </div>
         </div>
