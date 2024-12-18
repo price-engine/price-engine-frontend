@@ -8,6 +8,7 @@
 .card .product-image {
   width: 100%;
   aspect-ratio: 1/1;
+  object-fit: contain;
   mix-blend-mode: multiply;
 }
 .card .card-price {
