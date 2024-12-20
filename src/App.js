@@ -1,4 +1,3 @@
-import logo from "./logo.jpeg";
 import "./App.css";
 import Select from "react-select";
 import { useEffect, useRef, useState } from "react";
@@ -68,7 +67,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <img className="app-logo" src={logo} alt="" />
+        <img className="app-logo" src={`${process.env.PUBLIC_URL}/logo.png`} alt="" />
         <div className="inputs-container">
           <input
             id="search-input"
