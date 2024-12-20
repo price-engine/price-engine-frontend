@@ -39,7 +39,7 @@ function App() {
     };
     if (selectedCategory.length) queryStatement.category = selectedCategory?.map((cat) => cat.value);
     if (selectedGovernorate.length) queryStatement.location = selectedGovernorate?.map((gov) => gov.value);
-    fetch("http://127.0.0.1:3000/search?" + new URLSearchParams(queryStatement), {
+    fetch("https://price-engine-backend.linkpc.net/search?" + new URLSearchParams(queryStatement), {
       headers: { cacheControl: "noCache" },
     })
       .then((res) => res.json())
