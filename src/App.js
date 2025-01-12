@@ -15,6 +15,7 @@ function App() {
   const [minPrice, setMinPrice] = useState(NaN);
   const [maxPrice, setMaxPrice] = useState(NaN);
   const [products, setProducts] = useState([]);
+  const [hasScrolledDown, setHasScrolledDown] = useState(false);
   const isLastPage = useRef(false);
   const searchValue = useRef("");
   const page = useRef(1);
@@ -52,11 +53,17 @@ function App() {
       });
   }
   function handleScrolling() {
+    if (document.documentElement.scrollTop > 200) setHasScrolledDown(true);
+    else setHasScrolledDown(false);
     let bottomReached = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight;
     if (bottomReached && !isLastPage.current) {
       page.current++;
       fetchProducts();
     }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   useEffect(() => {
@@ -180,6 +187,7 @@ function App() {
           })}
         </div>
       </main>
+      {hasScrolledDown && <div className="scrollup-btn" onClick={scrollToTop}>^</div>}
     </div>
   );
 }
