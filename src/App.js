@@ -62,10 +62,6 @@ function App() {
     }
   }
 
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
   useEffect(() => {
     window.addEventListener("scroll", handleScrolling, { passive: true });
     return () => window.removeEventListener("scroll", handleScrolling);
@@ -187,7 +183,11 @@ function App() {
           })}
         </div>
       </main>
-      {hasScrolledDown && <div className="scrollup-btn" onClick={scrollToTop}>^</div>}
+      {hasScrolledDown && (
+        <div className="scrollup-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+          ^
+        </div>
+      )}
     </div>
   );
 }
