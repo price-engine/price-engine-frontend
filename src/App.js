@@ -32,11 +32,11 @@ function App() {
     if (searchValue.current === "") return;
     let queryStatement = {
       name: searchValue.current,
-      minPrice: minPrice || 0,
-      maxPrice: maxPrice || 9000000,
       page: page.current,
       sortAsc: selectedSort.value,
     };
+    if (!isNaN(minPrice)) queryStatement.minPrice = minPrice;
+    if (!isNaN(maxPrice)) queryStatement.maxPrice = maxPrice;
     if (selectedCategory.length) queryStatement.category = selectedCategory?.map((cat) => cat.value);
     if (selectedGovernorate.length) queryStatement.location = selectedGovernorate?.map((gov) => gov.value);
     fetch("https://price-engine-backend.linkpc.net/search?" + new URLSearchParams(queryStatement), {
