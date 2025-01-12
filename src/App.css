@@ -98,6 +98,23 @@ input:focus {
 .app-link {
   color: #61dafb;
 }
+.scrollup-btn{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 20px;
+  right: 20px;
+  padding-top: 4px;
+  background-color: var(--light-green);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 28px;
+  cursor: pointer;
+}
 
 @media (max-width: 1583px) {
   .governorates-categories-container {
@@ -122,5 +139,11 @@ input:focus {
     input{
       flex: 1;
     }
+  }
+  .scrollup-btn{
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
   }
 }
