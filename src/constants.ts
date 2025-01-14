@@ -127,4 +127,22 @@ export const categories = [
   { value: "wallet", label: "wallet" },
   { value: "other", label: "other" },
 ];
-  
+export const comboboxStyle = {
+  control: (baseStyles, state) => {
+    return {
+      ...baseStyles,
+      border: state.menuIsOpen ? "2px solid var(--light-green)" : "2px solid hsl(0, 0%, 90%)",
+      borderRadius: "6px",
+      "&:hover": {
+        borderColor: "var(--light-green)",
+      },
+    };
+  },
+  option: (baseStyles, state) => {
+    return {
+      ...baseStyles,
+      color: state.isFocused ? "white" : "black",
+      backgroundColor: state.isFocused ? "var(--light-green)" : "white",
+    };
+  },
+};

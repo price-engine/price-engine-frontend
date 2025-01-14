@@ -1,7 +1,7 @@
 import "./App.css";
 import Select from "react-select";
 import { useEffect, useRef, useState } from "react";
-import { categories, governorates } from "./constants.ts";
+import { categories, governorates, comboboxStyle } from "./constants.ts";
 import Card from "./components/Card/Card.jsx";
 
 function App() {
@@ -66,7 +66,7 @@ function App() {
     window.addEventListener("scroll", handleScrolling, { passive: true });
     return () => window.removeEventListener("scroll", handleScrolling);
   }, [selectedCategory, selectedGovernorate, selectedSort, minPrice, maxPrice]);
-
+  
   return (
     <div className="app">
       <header className="app-header">
@@ -87,31 +87,7 @@ function App() {
               value={selectedGovernorate}
               isMulti={true}
               placeholder="All Governorates"
-              theme={(theme) => {
-                console.log(theme);
-                return {
-                  ...theme,
-                  colors: {
-                    ...theme.colors,
-                    primary25: "var(--light-green)",
-                    // neutral50: "var(--light-green)", //chosen option color
-                    // neutral20: "var(--light-green)", //arrow color
-                  },
-                };
-              }}
-              styles={{
-                control: (baseStyles, state) => {
-                  return {
-                    ...baseStyles,
-                    border: state.menuIsOpen ? "2px solid var(--light-green)" : "2px solid hsl(0, 0%, 90%)",
-                    borderRadius: "6px",
-                    color: state.isFocused ? "black" : "red",
-                    "&:hover": {
-                      borderColor: "var(--light-green)",
-                    },
-                  };
-                },
-              }}
+              styles={comboboxStyle}
             />
             <Select
               className="combobox"
@@ -120,18 +96,7 @@ function App() {
               value={selectedCategory}
               isMulti={true}
               placeholder="All Categories"
-              styles={{
-                control: (baseStyles, state) => {
-                  return {
-                    ...baseStyles,
-                    border: "2px solid hsl(0, 0%, 90%)",
-                    borderRadius: "6px",
-                    "&:hover": {
-                      borderColor: "var(--light-green)",
-                    },
-                  };
-                },
-              }}
+              styles={comboboxStyle}
             />
           </div>
           <div className="price-inputs-container">
@@ -141,19 +106,7 @@ function App() {
               value={selectedSort}
               onChange={setSelectedSort}
               placeholder="Sort by"
-              styles={{
-                control: (baseStyles, state) => {
-                  return {
-                    ...baseStyles,
-                    border: "2px solid hsl(0, 0%, 90%)",
-                    borderRadius: "6px",
-                    color: state.isFocused ? "black" : "red",
-                    "&:hover": {
-                      borderColor: "var(--light-green)",
-                    },
-                  };
-                },
-              }}
+              styles={comboboxStyle}
             />
             <input
               type="number"
