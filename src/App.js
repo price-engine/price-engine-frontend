@@ -17,6 +17,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [hasScrolledDown, setHasScrolledDown] = useState(false);
   const [resultsExist, setResultsExist] = useState(true);
+  const [loading, setLoading] = useState(false);
   const isLastPage = useRef(false);
   const searchValue = useRef("");
   const page = useRef(1);
@@ -35,6 +36,7 @@ function App() {
     fetchProducts();
   }
   function fetchProducts() {
+    setLoading(true);
     let queryStatement = {
       name: searchValue.current,
       page: page.current,
@@ -44,7 +46,7 @@ function App() {
     if (!isNaN(maxPrice)) queryStatement.maxPrice = maxPrice;
     if (selectedCategory.length) queryStatement.category = selectedCategory?.map((cat) => cat.value);
     if (selectedGovernorate.length) queryStatement.location = selectedGovernorate?.map((gov) => gov.value);
-    return fetch("https://price-engine-backend.linkpc.net/search?" + new URLSearchParams(queryStatement), {
+    return fetch("http://127.0.0.1:3000/search?" + new URLSearchParams(queryStatement), {
       headers: { cacheControl: "noCache" },
     })
       .then((res) => res.json())
@@ -53,6 +55,7 @@ function App() {
           let totalProducts = oldProducts.concat(newProducts);
           if (newProducts.length === 0) isLastPage.current = true;
           setResultsExist(totalProducts.length > 0);
+          setLoading(false);
           return totalProducts;
         });
       });
@@ -139,6 +142,7 @@ function App() {
         </div>
       </header>
       <main>
+        {loading && <span className="loader"></span> }
         {resultsExist || <p className="no-results">No results found</p>}
         <div className="cards-container">
           {products?.map((product) => {
