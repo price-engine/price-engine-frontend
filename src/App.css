@@ -169,6 +169,6 @@ input:focus {
   }
   #search-btn {
     height: 40px;
-    flex: 1;
+    flex: 1 0 100%;
   }
 }
