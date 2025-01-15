@@ -22,8 +22,10 @@ function App() {
 
   function handleSearchInput(e) {
     searchValue.current = e.target.value;
-    if (e.key === "Enter") search();
-    else searchValue.current = e.target.value;
+    if (e.key === "Enter") {
+      search();
+      e.target.blur();
+    } else searchValue.current = e.target.value;
   }
   function search() {
     isLastPage.current = false;
