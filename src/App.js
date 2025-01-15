@@ -22,15 +22,16 @@ function App() {
 
   function handleSearchInput(e) {
     searchValue.current = e.target.value;
-    if (e.key === "Enter" && e.target.value !== "") {
-      isLastPage.current = false;
-      page.current = 1;
-      setProducts([]);
-      fetchProducts();
-    } else searchValue.current = e.target.value;
+    if (e.key === "Enter") search();
+    else searchValue.current = e.target.value;
+  }
+  function search() {
+    isLastPage.current = false;
+    page.current = 1;
+    setProducts([]);
+    fetchProducts();
   }
   function fetchProducts() {
-    if (searchValue.current === "") return;
     let queryStatement = {
       name: searchValue.current,
       page: page.current,
@@ -66,7 +67,7 @@ function App() {
     window.addEventListener("scroll", handleScrolling, { passive: true });
     return () => window.removeEventListener("scroll", handleScrolling);
   }, [selectedCategory, selectedGovernorate, selectedSort, minPrice, maxPrice]);
-  
+
   return (
     <div className="app">
       <header className="app-header">
@@ -126,6 +127,10 @@ function App() {
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
             />
+            <button id="search-btn" onClick={search}>
+              <img className="favicon" src={`${process.env.PUBLIC_URL}/favicon.ico`} alt="" />
+              Search
+            </button>
           </div>
         </div>
       </header>
