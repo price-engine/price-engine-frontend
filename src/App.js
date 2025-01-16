@@ -46,7 +46,7 @@ function App() {
     if (!isNaN(maxPrice)) queryStatement.maxPrice = maxPrice;
     if (selectedCategory.length) queryStatement.category = selectedCategory?.map((cat) => cat.value);
     if (selectedGovernorate.length) queryStatement.location = selectedGovernorate?.map((gov) => gov.value);
-    return fetch("http://127.0.0.1:3000/search?" + new URLSearchParams(queryStatement), {
+    return fetch("https://api.price-engine.com/search?" + new URLSearchParams(queryStatement), {
       headers: { cacheControl: "noCache" },
     })
       .then((res) => res.json())
@@ -142,7 +142,7 @@ function App() {
         </div>
       </header>
       <main>
-        {loading && <span className="loader"></span> }
+        {loading && <span className="loader"></span>}
         {resultsExist || <p className="no-results">No results found</p>}
         <div className="cards-container">
           {products?.map((product) => {
