@@ -15,6 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "sftp -b deploy_command.txt -i privateKey.key ktt@price-engine.com",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
