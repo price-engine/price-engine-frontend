@@ -85,7 +85,7 @@ function App() {
             <input
               id="search-input"
               type="search"
-              placeholder="Search Price-Engine"
+              placeholder="Search..."
               name="search"
               onKeyUp={handleSearchInput}
             />
