@@ -43,6 +43,27 @@ img {
   flex: 1;
   gap: 8px;
 }
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .exact-match-label {
+    position: absolute;
+    right: 12px;
+    color: #a9a9a9;
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+    input {
+      accent-color: var(--light-green);
+      cursor: pointer;
+      &:hover{
+        filter: brightness(1.2);
+      }
+    }
+  }
+}
 .price-inputs-container {
   display: flex;
   gap: 8px;

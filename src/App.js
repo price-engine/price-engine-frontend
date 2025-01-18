@@ -19,6 +19,7 @@ function App() {
   const [resultsExist, setResultsExist] = useState(true);
   const [loading, setLoading] = useState(false);
   const isLastPage = useRef(false);
+  const exactMatchRef = useRef();
   const searchValue = useRef("");
   const page = useRef(1);
 
@@ -38,7 +39,7 @@ function App() {
   function fetchProducts() {
     setLoading(true);
     let queryStatement = {
-      name: searchValue.current,
+      name: exactMatchRef.current.checked ? `"${searchValue.current}"` : searchValue.current,
       page: page.current,
       sortAsc: selectedSort.value,
     };
@@ -80,13 +81,19 @@ function App() {
       <header className="app-header">
         <img className="app-logo" src={`${process.env.PUBLIC_URL}/logo.png`} alt="" />
         <div className="inputs-container">
-          <input
-            id="search-input"
-            type="search"
-            placeholder="Search Price-Engine"
-            name="search"
-            onKeyUp={handleSearchInput}
-          />
+          <div className="search-input-container">
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Search Price-Engine"
+              name="search"
+              onKeyUp={handleSearchInput}
+            />
+            <label className="exact-match-label" for="exact-match-checkbox">
+              <input ref={exactMatchRef} type="checkbox" id="exact-match-checkbox" name="exact-match-checkbox" />
+              Exact Match
+            </label>
+          </div>
           <div className="governorates-categories-container">
             <Select
               className="combobox"
