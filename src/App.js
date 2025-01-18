@@ -143,7 +143,7 @@ function App() {
       </header>
       <main>
         {loading && <span className="loader"></span>}
-        {resultsExist || <p className="no-results">No results found</p>}
+        {loading || resultsExist || <p className="no-results">No results found</p>}
         <div className="cards-container">
           {products?.map((product) => {
             return <Card product={product} key={product.url} />;
