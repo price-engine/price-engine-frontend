@@ -4,6 +4,8 @@
 }
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 *:focus-within {
   /*Removes blue highlight when tapping on a touch device*/
@@ -35,7 +37,6 @@ img {
   display: flex;
   gap: 12px;
   align-items: center;
-  color: white;
 }
 .inputs-container {
   display: flex;
@@ -50,17 +51,21 @@ img {
 
   .exact-match-label {
     position: absolute;
+    display: flex;
+    align-items: baseline;
     right: 12px;
     color: #a9a9a9;
     font-weight: bold;
     user-select: none;
     cursor: pointer;
+    &:has(input:checked) {
+      color: var(--light-green);
+    }
     input {
+      position: relative;
+      top: 1.5px;
       accent-color: var(--light-green);
       cursor: pointer;
-      &:hover{
-        filter: brightness(1.2);
-      }
     }
   }
 }
