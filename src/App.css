@@ -4,8 +4,6 @@
 }
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 *:focus-within {
   /*Removes blue highlight when tapping on a touch device*/
@@ -50,6 +48,8 @@ img {
   align-items: center;
 
   .exact-match-label {
+    margin: 0;
+    padding: 0;
     position: absolute;
     display: flex;
     gap: 1px;
@@ -64,6 +64,8 @@ img {
       color: var(--light-green);
     }
     input {
+      margin: 0;
+      padding: 0;
       position: relative;
       top: 1.5px;
       accent-color: var(--light-green);
@@ -199,7 +201,7 @@ input:focus {
   }
 }
 @media (max-width: 842px) {
-  .app{
+  .app {
     padding: 0 10%;
   }
   .price-inputs-container {
