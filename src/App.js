@@ -82,7 +82,7 @@ function App() {
         <img className="app-logo" src={`${process.env.PUBLIC_URL}/logo.png`} alt="" />
         <div className="inputs-container">
           <div className="search-input-container">
-            <input id="search-input" type="search" placeholder="Search..." name="search" onKeyUp={handleSearchInput} />
+            <input id="search-input" type="text" placeholder="Search..." name="search" onKeyUp={handleSearchInput} />
             <label className="exact-match-label" for="exact-match-checkbox">
               <input ref={exactMatchRef} type="checkbox" id="exact-match-checkbox" name="exact-match-checkbox" />
               Exact Match
