@@ -90,7 +90,12 @@ function App() {
           </div>
           <div className="governorates-categories-container">
             <Select
-              className="combobox"
+              onMenuOpen={() =>
+                new Promise((r) => setTimeout(r, 200)).then(() =>
+                  document.querySelector(".governorates-combobox").scrollIntoView(true, { behavior: "smooth" })
+                )
+              }
+              className="combobox governorates-combobox"
               options={governorates}
               onChange={setSelectedGovernorate}
               value={selectedGovernorate}
@@ -99,7 +104,12 @@ function App() {
               styles={comboboxStyle}
             />
             <Select
-              className="combobox"
+              onMenuOpen={() =>
+                new Promise((r) => setTimeout(r, 200)).then(() =>
+                  document.querySelector(".categories-combobox").scrollIntoView(true, { behavior: "smooth" })
+                )
+              }
+              className="combobox categories-combobox"
               options={categories}
               onChange={setSelectedCategory}
               value={selectedCategory}
@@ -110,6 +120,11 @@ function App() {
           </div>
           <div className="price-inputs-container">
             <Select
+              onMenuOpen={() =>
+                new Promise((r) => setTimeout(r, 200)).then(() =>
+                  document.querySelector(".combobox.sort").scrollIntoView({ behavior: "smooth",block: "center" })
+                )
+              }
               className="combobox sort"
               options={sortOptions}
               value={selectedSort}
