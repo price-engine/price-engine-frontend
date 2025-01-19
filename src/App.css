@@ -52,8 +52,10 @@ img {
   .exact-match-label {
     position: absolute;
     display: flex;
+    gap: 1px;
     align-items: baseline;
-    right: 12px;
+    right: 0;
+    padding: 8px;
     color: #a9a9a9;
     font-weight: bold;
     user-select: none;
