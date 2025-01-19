@@ -64,7 +64,7 @@ function App() {
   function handleScrolling() {
     if (document.documentElement.scrollTop > 200) setHasScrolledDown(true);
     else setHasScrolledDown(false);
-    let bottomReached = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight;
+    let bottomReached = Math.ceil(window.innerHeight + window.scrollY + 10) >= document.documentElement.scrollHeight;
     if (bottomReached && products?.length && !isLastPage.current) {
       page.current++;
       fetchProducts();
@@ -165,6 +165,7 @@ function App() {
             return <Card product={product} key={product.url} />;
           })}
         </div>
+        {loading && products?.length > 0 && <span className="loader scrolling-loader"></span>}
       </main>
       {hasScrolledDown && (
         <div className="scrollup-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>

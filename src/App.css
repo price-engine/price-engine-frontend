@@ -176,6 +176,9 @@ input:focus {
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
+  &.scrolling-loader {
+    margin: 32px;
+  }
 }
 
 @keyframes rotation {
