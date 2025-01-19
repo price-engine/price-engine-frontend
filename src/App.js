@@ -74,7 +74,7 @@ function App() {
   useEffect(() => {
     window.addEventListener("scroll", handleScrolling, { passive: true });
     return () => window.removeEventListener("scroll", handleScrolling);
-  }, [selectedCategory, selectedGovernorate, selectedSort, minPrice, maxPrice]);
+  }, [products, selectedCategory, selectedGovernorate, selectedSort, minPrice, maxPrice]);
 
   return (
     <div className="app">
