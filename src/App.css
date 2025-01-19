@@ -113,6 +113,7 @@ input[type="number"] {
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
+  user-select: none;
   img.favicon {
     color: white;
     filter: brightness(0%) invert(100%);
