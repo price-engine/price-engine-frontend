@@ -199,6 +199,9 @@ input:focus {
   }
 }
 @media (max-width: 842px) {
+  .app{
+    padding: 0 10%;
+  }
   .price-inputs-container {
     flex-wrap: wrap;
     .combobox.sort {
