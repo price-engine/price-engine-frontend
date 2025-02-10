@@ -30,7 +30,9 @@ img {
   height: 240px;
   padding: 12px 0;
 }
-
+h1{
+  font-size: 0;
+}
 .app-header {
   display: flex;
   gap: 12px;

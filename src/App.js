@@ -79,7 +79,8 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <img className="app-logo" src={`${process.env.PUBLIC_URL}/logo.png`} alt="" />
+        <h1 className="">Price Engine Best Hardware Prices in Egypt</h1>
+        <img className="app-logo" src={`${process.env.PUBLIC_URL}/logo.png`} alt="Price Engine" />
         <div className="inputs-container">
           <div className="search-input-container">
             <input id="search-input" type="search" placeholder="Search..." name="search" onKeyUp={handleSearchInput} />
