@@ -5,7 +5,7 @@
 * {
   box-sizing: border-box;
 }
-*:focus-within {
+*:focus-within, *:focus {
   /*Removes blue highlight when tapping on a touch device*/
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
   /*Removes the 1px blue broder around focused elements*/
@@ -168,6 +168,7 @@ input:focus {
   height: 42px;
   font-size: 28px;
   cursor: pointer;
+  user-select: none;
 }
 .loader {
   width: 32px;
