@@ -222,7 +222,8 @@ input:focus {
     right: 8px;
     width: 36px;
     height: 36px;
-    font-size: 24px;
+    padding-top: 8px;
+    font-size: 26px;
   }
   #search-btn {
     height: 40px;
