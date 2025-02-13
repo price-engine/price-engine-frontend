@@ -22,6 +22,8 @@ function App() {
   const exactMatchRef = useRef();
   const searchValue = useRef("");
   const page = useRef(1);
+  const [categoryPlaceholder, setCategoryPlaceholder] = useState("All Categories");
+  const [governoratePlaceholder, setGovernoratePlaceholder] = useState("All Governorates");
 
   function handleSearchInput(e) {
     searchValue.current = e.target.value;
@@ -97,31 +99,35 @@ function App() {
           </div>
           <div className="governorates-categories-container">
             <Select
-              onMenuOpen={() =>
+              onMenuOpen={() => {
+                setGovernoratePlaceholder("Type anything. Example: Cairo");
                 new Promise((r) => setTimeout(r, 200)).then(() =>
                   document.querySelector(".governorates-combobox").scrollIntoView(true, { behavior: "smooth" })
-                )
-              }
+                );
+              }}
+              onMenuClose={() => setGovernoratePlaceholder("All Governorates")}
               className="combobox governorates-combobox"
               options={governorates}
               onChange={setSelectedGovernorate}
               value={selectedGovernorate}
               isMulti={true}
-              placeholder="All Governorates"
+              placeholder={governoratePlaceholder}
               styles={comboboxStyle}
             />
             <Select
-              onMenuOpen={() =>
+              onMenuOpen={() => {
+                setCategoryPlaceholder("Type anything. Example: CPU");
                 new Promise((r) => setTimeout(r, 200)).then(() =>
                   document.querySelector(".categories-combobox").scrollIntoView(true, { behavior: "smooth" })
-                )
-              }
+                );
+              }}
+              onMenuClose={() => setCategoryPlaceholder("All Categories")}
               className="combobox categories-combobox"
               options={categories}
               onChange={setSelectedCategory}
               value={selectedCategory}
               isMulti={true}
-              placeholder="All Categories"
+              placeholder={categoryPlaceholder}
               styles={comboboxStyle}
             />
           </div>
