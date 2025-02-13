@@ -85,7 +85,13 @@ function App() {
           <div className="search-input-container">
             <input id="search-input" type="search" placeholder="Search..." name="search" onKeyUp={handleSearchInput} />
             <label className="exact-match-label" for="exact-match-checkbox">
-              <input ref={exactMatchRef} type="checkbox" id="exact-match-checkbox" name="exact-match-checkbox" />
+              <input
+                ref={exactMatchRef}
+                type="checkbox"
+                id="exact-match-checkbox"
+                name="exact-match-checkbox"
+                defaultChecked="true"
+              />
               Exact Match
             </label>
           </div>
