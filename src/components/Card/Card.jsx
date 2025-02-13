@@ -4,9 +4,12 @@ export default function Card({ product }) {
   return (
     <div className="card">
       <img className="product-image" src={product.imgUrl} referrerPolicy="no-referrer" alt={product.name} />
-      <h4 className="card-name" title={product.name}>
-        {product.name}
-      </h4>
+      <div className="card-name-container">
+        <h4 className="card-name" title={product.name}>
+          {product.name}
+        </h4>
+        <span className="tooltip">{product.name}</span>
+      </div>
       <h3 className="card-price">{product.price} EGP</h3>
       <div className="links-container">
         <a href={product.shop.url} className="shop-logo-container">
