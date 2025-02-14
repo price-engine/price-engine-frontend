@@ -23,10 +23,10 @@
 .tooltip {
   visibility: hidden;
   width: 100%;
-  background-color: #27B06A;
+  background-color: #27b06a;
   color: #fff;
   text-align: center;
-  padding: 5px 0;
+  padding: 4px;
   border-radius: 6px;
   position: absolute;
   left: 0;
