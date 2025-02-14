@@ -73,7 +73,7 @@ export const categories = [
       { value: "storageUsed,hddUsed", label: "STORAGE USED (ALL)" },
       { value: "ssd,ssdSata,ssdM2", label: "ssd (sata+m.2)" },
       { value: "ssdSata", label: "ssd sata" },
-      { value: "ssdM2", label: "ssd m2" },
+      { value: "ssdM2", label: "ssd m.2" },
       { value: "hdd", label: "hdd" },
       { value: "hddUsed", label: "hdd used" },
       { value: "memoryCard", label: "memory card" },
