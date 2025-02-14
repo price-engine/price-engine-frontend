@@ -26,11 +26,11 @@ function App() {
   const [governoratePlaceholder, setGovernoratePlaceholder] = useState("All Governorates");
 
   function handleSearchInput(e) {
-    searchValue.current = e.target.value;
+    searchValue.current = e.target.value.trim();
     if (e.key === "Enter") {
       search();
       e.target.blur();
-    } else searchValue.current = e.target.value;
+    } else searchValue.current = e.target.value.trim();
   }
   function search() {
     isLastPage.current = false;
@@ -41,7 +41,8 @@ function App() {
   function fetchProducts() {
     setLoading(true);
     let queryStatement = {
-      name: exactMatchRef.current.checked ? `"${searchValue.current}"` : searchValue.current,
+      name:
+        exactMatchRef.current.checked && searchValue.current !== "" ? `"${searchValue.current}"` : searchValue.current,
       page: page.current,
       sortAsc: selectedSort.value,
     };
