@@ -21,7 +21,11 @@ export default function Card({ product }) {
           />
         </a>
         <a className="primary-btn" href={product.url} target="_blank" rel="noreferrer">
-          <button>Go to Page</button>
+          <button
+            data-m:click={`clicked_shop=${product.shop.name};clicked_product=${product.name};clicked_link=${product.url}`}
+          >
+            Go to Page
+          </button>
         </a>
       </div>
     </div>

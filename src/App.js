@@ -18,6 +18,7 @@ function App() {
   const [hasScrolledDown, setHasScrolledDown] = useState(false);
   const [resultsExist, setResultsExist] = useState(true);
   const [loading, setLoading] = useState(false);
+  const searchBtnRef = useRef();
   const isLastPage = useRef(false);
   const exactMatchRef = useRef();
   const searchValue = useRef("");
@@ -28,7 +29,7 @@ function App() {
   function handleSearchInput(e) {
     searchValue.current = e.target.value.trim();
     if (e.key === "Enter") {
-      search();
+      searchBtnRef.current.click();
       e.target.blur();
     } else searchValue.current = e.target.value.trim();
   }
@@ -78,6 +79,14 @@ function App() {
     window.addEventListener("scroll", handleScrolling, { passive: true });
     return () => window.removeEventListener("scroll", handleScrolling);
   }, [products, selectedCategory, selectedGovernorate, selectedSort, minPrice, maxPrice]);
+
+  useEffect(() => {
+    const medamaScript = document.createElement("script");
+    medamaScript.src = "https://medama.price-engine.com/script.js";
+    medamaScript.async = true;
+    document.body.appendChild(medamaScript);
+    return () => document.body.removeChild(medamaScript);
+  }, [products]);
 
   return (
     <div className="app">
@@ -164,7 +173,16 @@ function App() {
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
             />
-            <button id="search-btn" onClick={search}>
+            <button
+              ref={searchBtnRef}
+              id="search-btn"
+              onClick={search}
+              data-m:click={`searchValue=${searchValue.current};selectedGovernorate=${selectedGovernorate.map(
+                (g) => g.label
+              )};selectedCategory=${selectedCategory.map((c) => c.label)};selectedSort=${
+                selectedSort.label
+              };minPrice=${minPrice};maxPrice=${maxPrice}`}
+            >
               <img className="favicon" src={`${process.env.PUBLIC_URL}/favicon.ico`} alt="" />
               Search
             </button>
