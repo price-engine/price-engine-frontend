@@ -163,6 +163,12 @@ function App() {
               name="minPrice"
               value={minPrice}
               onChange={(e) => setMinPrice(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.target.blur();
+                  searchBtnRef.current.click();
+                }
+              }}
             />
             <input
               type="number"
@@ -172,6 +178,12 @@ function App() {
               name="maxPrice"
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.target.blur();
+                  searchBtnRef.current.click();
+                }
+              }}
             />
             <button
               ref={searchBtnRef}
