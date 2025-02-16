@@ -3,6 +3,7 @@ export default function Card({ product }) {
   const shopLogos = importShopLogos(require.context("../../shopLogos", false, /\.(webp|png|jpe?g|svg)$/));
   return (
     <div className="card">
+      {product.shop?.onlineOnly && <span className="online-only">&#x2022; Online Only</span>}
       <img className="product-image" src={product.imgUrl} referrerPolicy="no-referrer" alt={product.name} />
       <div className="card-name-container">
         <h4 className="card-name" title={product.name}>
