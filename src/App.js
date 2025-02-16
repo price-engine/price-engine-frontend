@@ -50,7 +50,8 @@ function App() {
     if (!isNaN(minPrice)) queryStatement.minPrice = minPrice;
     if (!isNaN(maxPrice)) queryStatement.maxPrice = maxPrice;
     if (selectedCategory.length) queryStatement.category = selectedCategory?.map((cat) => cat.value);
-    if (selectedGovernorate.length) queryStatement.location = selectedGovernorate?.map((gov) => gov.value);
+    if (selectedGovernorate.length)
+      queryStatement.location = selectedGovernorate?.map((gov) => gov.value).concat("Online");
     return fetch("https://api.price-engine.com/search?" + new URLSearchParams(queryStatement), {
       headers: { cacheControl: "noCache" },
     })
