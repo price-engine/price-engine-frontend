@@ -99,6 +99,7 @@ function App() {
               name="search"
               onKeyUp={handleSearchInput}
               onChange={(e) => (searchValue.current = e.target.value.trim())}
+              autoFocus
             />
             <label className="exact-match-label" for="exact-match-checkbox">
               <input
