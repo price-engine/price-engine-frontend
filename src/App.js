@@ -27,10 +27,7 @@ function App() {
   const [governoratePlaceholder, setGovernoratePlaceholder] = useState("All Governorates");
 
   function handleSearchInput(e) {
-    if (e.key === "Enter") {
-      searchBtnRef.current.click();
-      e.target.blur();
-    }
+    if (e.key === "Enter") searchBtnRef.current.click();
   }
   function search() {
     isLastPage.current = false;
