@@ -27,11 +27,10 @@ function App() {
   const [governoratePlaceholder, setGovernoratePlaceholder] = useState("All Governorates");
 
   function handleSearchInput(e) {
-    searchValue.current = e.target.value.trim();
     if (e.key === "Enter") {
       searchBtnRef.current.click();
       e.target.blur();
-    } else searchValue.current = e.target.value.trim();
+    }
   }
   function search() {
     isLastPage.current = false;
@@ -96,7 +95,14 @@ function App() {
         <img className="app-logo" src={`${process.env.PUBLIC_URL}/logo.png`} alt="Price Engine" />
         <div className="inputs-container">
           <div className="search-input-container">
-            <input id="search-input" type="search" placeholder="Search..." name="search" onKeyUp={handleSearchInput} />
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Search..."
+              name="search"
+              onKeyUp={handleSearchInput}
+              onChange={(e) => (searchValue.current = e.target.value.trim())}
+            />
             <label className="exact-match-label" for="exact-match-checkbox">
               <input
                 ref={exactMatchRef}
