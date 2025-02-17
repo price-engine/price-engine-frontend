@@ -13,7 +13,7 @@ export default function Card({ product }) {
       </div>
       <h3 className="card-price">{product.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} EGP</h3>
       <div className="links-container">
-        <a href={product.shop.url} className="shop-logo-container">
+        <a href={product.shop.url} className="shop-logo-container" target="_blank" rel="noreferrer">
           <img
             src={shopLogos[product.shop.id]}
             className="shop-logo"
