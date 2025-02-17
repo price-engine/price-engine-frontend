@@ -112,9 +112,10 @@ function App() {
             <Select
               onMenuOpen={() => {
                 setGovernoratePlaceholder("Type anything. Example: Cairo");
-                new Promise((r) => setTimeout(r, 200)).then(() =>
-                  document.querySelector(".governorates-combobox").scrollIntoView(true, { behavior: "smooth" })
-                );
+                if (window.innerWidth < 843)
+                  new Promise((r) => setTimeout(r, 200)).then(() =>
+                    document.querySelector(".governorates-combobox").scrollIntoView(true, { behavior: "smooth" })
+                  );
               }}
               onMenuClose={() => setGovernoratePlaceholder("All Governorates")}
               className="combobox governorates-combobox"
@@ -128,9 +129,10 @@ function App() {
             <Select
               onMenuOpen={() => {
                 setCategoryPlaceholder("Type anything. Example: CPU");
-                new Promise((r) => setTimeout(r, 200)).then(() =>
-                  document.querySelector(".categories-combobox").scrollIntoView(true, { behavior: "smooth" })
-                );
+                if (window.innerWidth < 843)
+                  new Promise((r) => setTimeout(r, 200)).then(() =>
+                    document.querySelector(".categories-combobox").scrollIntoView(true, { behavior: "smooth" })
+                  );
               }}
               onMenuClose={() => setCategoryPlaceholder("All Categories")}
               className="combobox categories-combobox"
@@ -144,11 +146,12 @@ function App() {
           </div>
           <div className="price-inputs-container">
             <Select
-              onMenuOpen={() =>
-                new Promise((r) => setTimeout(r, 200)).then(() =>
-                  document.querySelector(".combobox.sort").scrollIntoView({ behavior: "smooth", block: "center" })
-                )
-              }
+              onMenuOpen={() => {
+                if (window.innerWidth < 843)
+                  new Promise((r) => setTimeout(r, 200)).then(() =>
+                    document.querySelector(".combobox.sort").scrollIntoView({ behavior: "smooth", block: "center" })
+                  );
+              }}
               className="combobox sort"
               options={sortOptions}
               value={selectedSort}
