@@ -25,7 +25,7 @@ export default function Card({ product }) {
           <button
             data-m:click={`clicked_shop=${product.shop.name};clicked_product=${product.name};clicked_link=${product.url}`}
           >
-            Go to Page
+            Visit Page
           </button>
         </a>
       </div>
