@@ -71,7 +71,7 @@ function App() {
     if (document.documentElement.scrollTop > 200) setHasScrolledDown(true);
     else setHasScrolledDown(false);
     let bottomReached = Math.ceil(window.innerHeight + window.scrollY + 10) >= document.documentElement.scrollHeight;
-    if (bottomReached && products?.length && !isLastPage.current) {
+    if (bottomReached && products?.length && !isLastPage.current && !loading) {
       page.current++;
       fetchProducts();
     }
