@@ -1,4 +1,4 @@
-import "./style.css";
+import "./card.css";
 export default function Card({ product }) {
   const shopLogos = importShopLogos(require.context("../../shopLogos", false, /\.(webp|png|jpe?g|svg)$/));
   return (
