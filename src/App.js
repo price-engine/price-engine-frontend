@@ -38,8 +38,7 @@ function App() {
     setProducts([]);
     fetchProducts();
   }
-  function fetchProducts() {
-    setLoading(true);
+  function generateQueryStatement() {
     let queryStatement = {
       name:
         exactMatchRef.current.checked && searchValue.current !== "" ? `"${searchValue.current}"` : searchValue.current,
@@ -51,19 +50,22 @@ function App() {
     if (selectedCategory.length) queryStatement.category = selectedCategory?.map((cat) => cat.value);
     if (selectedGovernorate.length)
       queryStatement.location = selectedGovernorate?.map((gov) => gov.value).concat("Online");
-    return fetch("https://api.price-engine.com/search?" + new URLSearchParams(queryStatement), {
+    return queryStatement;
+  }
+  async function fetchProducts() {
+    setLoading(true);
+    let queryStatement = generateQueryStatement();
+    const res = await fetch("https://api.price-engine.com/search?" + new URLSearchParams(queryStatement), {
       headers: { cacheControl: "noCache" },
-    })
-      .then((res) => res.json())
-      .then((newProducts) => {
-        setProducts((oldProducts) => {
-          let totalProducts = oldProducts.concat(newProducts);
-          if (newProducts.length === 0) isLastPage.current = true;
-          setResultsExist(totalProducts.length > 0);
-          setLoading(false);
-          return totalProducts;
-        });
-      });
+    });
+    const newProducts = await res.json();
+    if (newProducts.length === 0) isLastPage.current = true;
+    setProducts((oldProducts) => {
+      let totalProducts = oldProducts.concat(newProducts);
+      setResultsExist(totalProducts.length > 0);
+      setLoading(false);
+      return totalProducts;
+    });
   }
   function handleScrolling() {
     if (document.documentElement.scrollTop > 200) setHasScrolledDown(true);
