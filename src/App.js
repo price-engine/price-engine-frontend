@@ -40,32 +40,23 @@ function App() {
   function generateQueryStatement() {
     let queryStatement = {
       name:
-        exactMatchRef.current.checked && searchValue.current !== ""
-          ? `"${searchValue.current}"`
-          : searchValue.current,
+        exactMatchRef.current.checked && searchValue.current !== "" ? `"${searchValue.current}"` : searchValue.current,
       page: page.current,
       sortAsc: selectedSort.value,
     };
     if (!isNaN(minPrice)) queryStatement.minPrice = minPrice;
     if (!isNaN(maxPrice)) queryStatement.maxPrice = maxPrice;
-    if (selectedCategory.length)
-      queryStatement.category = selectedCategory?.map((cat) => cat.value);
+    if (selectedCategory.length) queryStatement.category = selectedCategory?.map((cat) => cat.value);
     if (selectedGovernorate.length)
-      queryStatement.location = selectedGovernorate
-        ?.map((gov) => gov.value)
-        .concat("Online");
+      queryStatement.location = selectedGovernorate?.map((gov) => gov.value).concat("Online");
     return queryStatement;
   }
   async function fetchProducts() {
     setLoading(true);
     let queryStatement = generateQueryStatement();
-    const res = await fetch(
-      "https://api.price-engine.com/search?" +
-        new URLSearchParams(queryStatement),
-      {
-        headers: { cacheControl: "noCache" },
-      }
-    );
+    const res = await fetch("https://api.price-engine.com/search?" + new URLSearchParams(queryStatement), {
+      headers: { cacheControl: "noCache" },
+    });
     const newProducts = await res.json();
     if (newProducts.length === 0) isLastPage.current = true;
     setProducts((oldProducts) => {
@@ -78,9 +69,7 @@ function App() {
   function handleScrolling() {
     if (document.documentElement.scrollTop > 200) setHasScrolledDown(true);
     else setHasScrolledDown(false);
-    let bottomReached =
-      Math.ceil(window.innerHeight + window.scrollY + 10) >=
-      document.documentElement.scrollHeight;
+    let bottomReached = Math.ceil(window.innerHeight + window.scrollY + 10) >= document.documentElement.scrollHeight;
     if (bottomReached && products?.length && !isLastPage.current && !loading) {
       page.current++;
       fetchProducts();
@@ -90,14 +79,7 @@ function App() {
   useEffect(() => {
     window.addEventListener("scroll", handleScrolling, { passive: true });
     return () => window.removeEventListener("scroll", handleScrolling);
-  }, [
-    products,
-    selectedCategory,
-    selectedGovernorate,
-    selectedSort,
-    minPrice,
-    maxPrice,
-  ]);
+  }, [products, selectedCategory, selectedGovernorate, selectedSort, minPrice, maxPrice]);
 
   useEffect(() => {
     const medamaScript = document.createElement("script");
@@ -111,11 +93,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1 className="">Price Engine Best Hardware Prices in Egypt</h1>
-        <img
-          className="app-logo"
-          src={`${process.env.PUBLIC_URL}/logo.png`}
-          alt="Price Engine"
-        />
+        <img className="app-logo" src={`${process.env.PUBLIC_URL}/logo.png`} alt="Price Engine" />
         <div className="inputs-container">
           <div className="search-input-container">
             <input
@@ -161,9 +139,7 @@ function App() {
               onMenuOpen={() => {
                 if (window.innerWidth < 843)
                   new Promise((r) => setTimeout(r, 200)).then(() =>
-                    document
-                      .querySelector(".combobox.sort")
-                      .scrollIntoView({ behavior: "smooth", block: "center" })
+                    document.querySelector(".combobox.sort").scrollIntoView({ behavior: "smooth", block: "center" })
                   );
               }}
               className="combobox sort"
@@ -196,21 +172,13 @@ function App() {
               ref={searchBtnRef}
               id="search-btn"
               onClick={search}
-              data-m:click={`searchValue=${
-                searchValue.current
-              };selectedGovernorate=${selectedGovernorate.map(
+              data-m:click={`searchValue=${searchValue.current};selectedGovernorate=${selectedGovernorate.map(
                 (g) => g.label
-              )};selectedCategory=${selectedCategory.map(
-                (c) => c.label
-              )};selectedSort=${
+              )};selectedCategory=${selectedCategory.map((c) => c.label)};selectedSort=${
                 selectedSort.label
               };minPrice=${minPrice};maxPrice=${maxPrice}`}
             >
-              <img
-                className="favicon"
-                src={`${process.env.PUBLIC_URL}/favicon.ico`}
-                alt=""
-              />
+              <img className="favicon" src={`${process.env.PUBLIC_URL}/favicon.ico`} alt="" />
               Search
             </button>
           </div>
@@ -218,23 +186,16 @@ function App() {
       </header>
       <main>
         {loading && <span className="loader"></span>}
-        {loading || resultsExist || (
-          <p className="no-results">No results found</p>
-        )}
+        {loading || resultsExist || <p className="no-results">No results found</p>}
         <div className="cards-container">
           {products?.map((product) => {
             return <Card product={product} key={product.url} />;
           })}
         </div>
-        {loading && products?.length > 0 && (
-          <span className="loader scrolling-loader"></span>
-        )}
+        {loading && products?.length > 0 && <span className="loader scrolling-loader"></span>}
       </main>
       {hasScrolledDown && (
-        <div
-          className="scrollup-btn"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
+        <div className="scrollup-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           ^
         </div>
       )}
