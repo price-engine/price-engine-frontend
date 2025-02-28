@@ -52,7 +52,6 @@ function App() {
     return queryStatement;
   }
   async function fetchProducts() {
-    setLoading(true);
     let queryStatement = generateQueryStatement();
     const res = await fetch("https://api.price-engine.com/search?" + new URLSearchParams(queryStatement), {
       headers: { cacheControl: "noCache" },
@@ -62,7 +61,6 @@ function App() {
     setProducts((oldProducts) => {
       let totalProducts = oldProducts.concat(newProducts);
       setResultsExist(totalProducts.length > 0);
-      setLoading(false);
       return totalProducts;
     });
   }
@@ -71,15 +69,16 @@ function App() {
     else setHasScrolledDown(false);
     let bottomReached = Math.ceil(window.innerHeight + window.scrollY + 10) >= document.documentElement.scrollHeight;
     if (bottomReached && products?.length && !isLastPage.current && !loading) {
+      setLoading(true);
       page.current++;
-      fetchProducts();
+      fetchProducts().then(() => setLoading(false));
     }
   }
 
   useEffect(() => {
     window.addEventListener("scroll", handleScrolling, { passive: true });
     return () => window.removeEventListener("scroll", handleScrolling);
-  }, [products, selectedCategory, selectedGovernorate, selectedSort, minPrice, maxPrice]);
+  }, [products, loading, isLastPage]);
 
   useEffect(() => {
     const medamaScript = document.createElement("script");
