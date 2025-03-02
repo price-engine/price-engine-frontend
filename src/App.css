@@ -5,7 +5,8 @@
 * {
   box-sizing: border-box;
 }
-*:focus-within, *:focus {
+*:focus-within,
+*:focus {
   /*Removes blue highlight when tapping on a touch device*/
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
   /*Removes the 1px blue broder around focused elements*/
@@ -30,7 +31,7 @@ img {
   height: 240px;
   padding: 12px 0;
 }
-h1{
+h1 {
   font-size: 0;
 }
 .app-header {
@@ -187,10 +188,49 @@ input:focus {
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
   &.scrolling-loader {
-    margin: 32px;
+    margin: 72px 0;
   }
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 36px;
+  row-gap: 10px;
+  border-top: 1px solid #e0e0e0;
+  padding: 10px 0;
+  margin-top: 12px;
+  p {
+    margin: 0;
+  }
+  .socia-media-icons-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    img {
+      width: 22px;
+      height: 22px;
+    }
+    .linkedin-icon:hover {
+      filter: contrast(0) invert(25%) sepia(22%) saturate(6931%) hue-rotate(197deg) contrast(85%);
+    }
+    .github-icon:hover {
+      filter: brightness(0);
+    }
+  }
+}
+img {
+  /* fixes img inside anchor not aligned with other flex elements (4px difference) */
+  vertical-align: bottom;
+}
+a {
+  text-decoration: none;
+  &:visited {
+    color: transparent;
+  }
+}
 @keyframes rotation {
   0% {
     transform: rotate(0deg);

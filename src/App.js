@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { categories, governorates, comboboxStyle } from "./constants.ts";
 import Card from "./components/Card/Card.jsx";
 import ComboBox from "./components/ComboBox/ComboBox.jsx";
+import linkedinIcon from "./assets/icons/linkedin.svg";
+import githubIcon from "./assets/icons/github.svg";
 
 function App() {
   const sortOptions = [
@@ -52,6 +54,7 @@ function App() {
     return queryStatement;
   }
   async function fetchProducts() {
+    setLoading(true);
     let queryStatement = generateQueryStatement();
     const res = await fetch("https://api.price-engine.com/search?" + new URLSearchParams(queryStatement), {
       headers: { cacheControl: "noCache" },
@@ -61,6 +64,7 @@ function App() {
     setProducts((oldProducts) => {
       let totalProducts = oldProducts.concat(newProducts);
       setResultsExist(totalProducts.length > 0);
+      setLoading(false);
       return totalProducts;
     });
   }
@@ -69,9 +73,8 @@ function App() {
     else setHasScrolledDown(false);
     let bottomReached = Math.ceil(window.innerHeight + window.scrollY + 10) >= document.documentElement.scrollHeight;
     if (bottomReached && products?.length && !isLastPage.current && !loading) {
-      setLoading(true);
       page.current++;
-      fetchProducts().then(() => setLoading(false));
+      fetchProducts();
     }
   }
 
@@ -193,6 +196,24 @@ function App() {
         </div>
         {loading && products?.length > 0 && <span className="loader scrolling-loader"></span>}
       </main>
+      <footer>
+        <span className="socia-media-icons-container">
+          <a href="https://www.linkedin.com/in/khalidwaleed0/" target="_blank" rel="nofollow noreferrer">
+            <img src={linkedinIcon} className="linkedin-icon" alt="LinkedIn Profile" />
+          </a>
+          <a href="https://github.com/khalidwaleed0" target="_blank" rel="nofollow noreferrer">
+            <img src={githubIcon} className="github-icon" alt="Github Profile" />
+          </a>
+        </span>
+        <p>Made with ❤️ © 2025 Price Engine.</p>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSd_K3p83JOWs6tXmFxc8I3rBROoUK7Cr26llXlellUep1Sk2A/viewform?usp=header"
+          target="_blank"
+          rel="nofollow noreferrer"
+        >
+          ✍🏻 Send feedback
+        </a>
+      </footer>
       {hasScrolledDown && (
         <div className="scrollup-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           ^
