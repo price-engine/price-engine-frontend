@@ -1,6 +1,6 @@
 import "./card.css";
 export default function Card({ product }) {
-  const shopLogos = importShopLogos(require.context("../../shopLogos", false, /\.(webp|png|jpe?g|svg)$/));
+  const shopLogos = importShopLogos(require.context("../../assets/shopLogos", false, /\.(webp|png|jpe?g|svg)$/));
   return (
     <div className="card">
       {product.shop?.onlineOnly && <span className="online-only">&#x2022; Online Only</span>}
