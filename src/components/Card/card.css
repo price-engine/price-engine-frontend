@@ -65,16 +65,38 @@
 .card a.primary-btn {
   flex: 1;
 }
-.card button {
+.card a.primary-btn button {
   width: 100%;
+}
+.card button {
+  border: none;
+  border-radius: 6px;
   height: 100%;
-  font-size: 18px;
-  cursor: pointer;
   color: white;
   background-color: #0ad17e;
-  border-radius: 6px;
-  border: none;
+  font-size: 18px;
   &:hover {
     filter: saturate(110%);
+  }
+}
+.card button.add-to-cart-btn {
+  color: transparent;
+  aspect-ratio: 1/1;
+  &::before {
+    content: "🛒";
+    text-shadow: 0 0 0 white;
+  }
+  &.added {
+    background-color: var(--dark-green);
+    &::before {
+      content: "✔";
+    }
+  }
+  @media (hover: hover) {
+    &.added.removable:hover {
+      &::before {
+        content: "✖";
+      }
+    }
   }
 }

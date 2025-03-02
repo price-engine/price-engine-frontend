@@ -121,10 +121,8 @@ input[type="number"] {
   border: none;
   border-radius: 6px;
   background-color: var(--light-green);
-  color: white;
   font-size: 18px;
   font-weight: bold;
-  cursor: pointer;
   user-select: none;
   img.favicon {
     color: white;
@@ -160,22 +158,34 @@ input:focus {
 .app-link {
   color: #61dafb;
 }
-.scrollup-btn {
+.sidebar-btns-container {
   position: fixed;
+  bottom: 20px;
+  right: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cart-btn {
+  padding: 8px;
+  color: transparent;
+  text-shadow: 0 0 0 white;
+  font-size: 22px;
+}
+.scrollup-btn {
+  font-size: 28px;
+  padding-top: 8px;
+}
+.sidebar-btn {
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 20px;
-  right: 20px;
-  padding-top: 4px;
-  background-color: var(--light-green);
-  color: white;
   border: none;
+  background-color: var(--light-green);
   border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  font-size: 28px;
-  cursor: pointer;
+  width: 48px;
+  height: 48px;
   user-select: none;
 }
 .loader {
@@ -231,6 +241,10 @@ a {
     color: transparent;
   }
 }
+button {
+  color: white;
+  cursor: pointer;
+}
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
@@ -266,12 +280,11 @@ a {
       flex: 1;
     }
   }
-  .scrollup-btn {
-    right: 8px;
-    width: 36px;
-    height: 36px;
-    padding-top: 8px;
-    font-size: 26px;
+  .sidebar-btns-container {
+    left: 14px;
+    .scrollup-btn {
+      padding-top: 12px;
+    }
   }
   #search-btn {
     height: 40px;

@@ -214,11 +214,14 @@ function App() {
           ✍🏻 Send feedback
         </a>
       </footer>
-      {hasScrolledDown && (
-        <div className="scrollup-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          ^
-        </div>
-      )}
+      <div className="sidebar-btns-container">
+        {hasScrolledDown && (
+          <button className="scrollup-btn sidebar-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+            ^
+          </button>
+        )}
+        <button className="cart-btn sidebar-btn">🛒</button>
+      </div>
     </div>
   );
 }

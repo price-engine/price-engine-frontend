@@ -1,6 +1,15 @@
+import { useEffect, useState } from "react";
 import "./card.css";
 export default function Card({ product }) {
   const shopLogos = importShopLogos(require.context("../../assets/shopLogos", false, /\.(webp|png|jpe?g|svg)$/));
+  const [addedToCart, setAddedToCart] = useState(false);
+  const [removable, setRemovable] = useState(false);
+
+  function handleAddToCart() {
+    if (!addedToCart) setTimeout(() => setRemovable(true), 1000);
+    else setRemovable(false);
+    setAddedToCart((toggle) => !toggle);
+  }
   return (
     <div className="card">
       {product.shop?.onlineOnly && <span className="online-only">&#x2022; Online Only</span>}
@@ -28,6 +37,10 @@ export default function Card({ product }) {
             Visit Page
           </button>
         </a>
+        <button
+          className={`add-to-cart-btn ${addedToCart && "added"} ${removable && "removable"}`}
+          onClick={handleAddToCart}
+        ></button>
       </div>
     </div>
   );
