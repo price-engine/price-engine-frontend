@@ -6,8 +6,21 @@ export default function Card({ product }) {
   const [removable, setRemovable] = useState(false);
 
   function handleAddToCart() {
-    if (!addedToCart) setTimeout(() => setRemovable(true), 1000);
-    else setRemovable(false);
+    if (!addedToCart) {
+      setTimeout(() => setRemovable(true), 1000);
+      localStorage.setItem(
+        "cartProducts",
+        JSON.stringify([...JSON.parse(localStorage.getItem("cartProducts") || "[]"), product])
+      );
+    } else {
+      localStorage.setItem(
+        "cartProducts",
+        JSON.stringify([
+          ...JSON.parse(localStorage.getItem("cartProducts") || "[]").filter((el) => el.url !== product.url),
+        ])
+      );
+      setRemovable(false);
+    }
     setAddedToCart((toggle) => !toggle);
   }
   return (
