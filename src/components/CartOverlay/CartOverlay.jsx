@@ -3,6 +3,19 @@ import { shopLogos } from "../Card/Card.jsx";
 import "./cart-overlay.css";
 
 export default function CartOverlay({ cartProducts, setCartProducts, setCartShown }) {
+  const [linkCopied, setLinkCopied] = useState(false);
+  function handleCopyLink() {
+    if (cartProducts.length === 0) return;
+    setLinkCopied(true);
+    setTimeout(() => setLinkCopied(false), 1000);
+    fetch("https://api.price-engine.com/cart/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(cartProducts),
+    })
+      .then((res) => res.json())
+      .then((res) => navigator.clipboard.writeText(`https://price-engine.com/share/${res.id}`));
+  }
   useEffect(() => {
     setCartProducts((oldProducts) => {
       let newProducts = [...oldProducts];
@@ -33,7 +46,9 @@ export default function CartOverlay({ cartProducts, setCartProducts, setCartShow
               .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}{" "}
           EGP
         </h3>
-        <button className="copy-link-btn">Copy Share Link</button>
+        <button className="copy-link-btn" onClick={handleCopyLink}>
+          {linkCopied ? "Copied" : "Copy Share Link"}
+        </button>
       </div>
     </div>
   );
@@ -50,7 +65,7 @@ function CartCard({ product, setCartProducts }) {
       return newProducts;
     });
   }
-  function handleRemoveCard(e) {
+  function handleRemoveCard() {
     setCartProducts((oldProducts) => {
       let newProducts = oldProducts.filter((p) => p.url !== product.url);
       localStorage.setItem("cartProducts", JSON.stringify(newProducts));
