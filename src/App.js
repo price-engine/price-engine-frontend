@@ -6,6 +6,7 @@ import Card from "./components/Card/Card.jsx";
 import ComboBox from "./components/ComboBox/ComboBox.jsx";
 import linkedinIcon from "./assets/icons/linkedin.svg";
 import githubIcon from "./assets/icons/github.svg";
+import CartOverlay from "./components/CartOverlay/CartOverlay.jsx";
 
 function App() {
   const sortOptions = [
@@ -21,6 +22,8 @@ function App() {
   const [hasScrolledDown, setHasScrolledDown] = useState(false);
   const [resultsExist, setResultsExist] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [cartShown, setCartShown] = useState(false);
+  const [cartProducts, setCartProducts] = useState(JSON.parse(localStorage.getItem("cartProducts") || "[]"));
   const searchBtnRef = useRef();
   const isLastPage = useRef(false);
   const exactMatchRef = useRef();
@@ -189,9 +192,9 @@ function App() {
       <main>
         {loading && <span className="loader"></span>}
         {loading || resultsExist || <p className="no-results">No results found</p>}
-        <div className="cards-container">
+        <div className="main-cards-container">
           {products?.map((product) => {
-            return <Card product={product} key={product.url} />;
+            return <Card product={product} setCartProducts={setCartProducts} key={product.url} />;
           })}
         </div>
         {loading && products?.length > 0 && <span className="loader scrolling-loader"></span>}
@@ -220,8 +223,13 @@ function App() {
             ^
           </button>
         )}
-        <button className="cart-btn sidebar-btn">🛒</button>
+        <button className="cart-btn sidebar-btn" onClick={() => setCartShown(true)}>
+          🛒
+        </button>
       </div>
+      {cartShown && (
+        <CartOverlay cartProducts={cartProducts} setCartProducts={setCartProducts} setCartShown={setCartShown} />
+      )}
     </div>
   );
 }

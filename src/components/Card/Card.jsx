@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./card.css";
-export default function Card({ product }) {
-  const shopLogos = importShopLogos(require.context("../../assets/shopLogos", false, /\.(webp|png|jpe?g|svg)$/));
+export const shopLogos = importShopLogos(require.context("../../assets/shopLogos", false, /\.(webp|png|jpe?g|svg)$/));
+export default function Card({ product, setCartProducts }) {
   const [addedToCart, setAddedToCart] = useState(false);
   const [removable, setRemovable] = useState(false);
 
   function handleAddToCart() {
     if (!addedToCart) {
       setTimeout(() => setRemovable(true), 1000);
-      localStorage.setItem(
-        "cartProducts",
-        JSON.stringify([...JSON.parse(localStorage.getItem("cartProducts") || "[]"), product])
-      );
+      setCartProducts((oldProducts) => {
+        let newCartProducts = [...oldProducts, product];
+        localStorage.setItem("cartProducts", JSON.stringify(newCartProducts));
+        return newCartProducts;
+      });
     } else {
-      localStorage.setItem(
-        "cartProducts",
-        JSON.stringify([
-          ...JSON.parse(localStorage.getItem("cartProducts") || "[]").filter((el) => el.url !== product.url),
-        ])
-      );
+      setCartProducts((oldProducts) => {
+        let newCartProducts = oldProducts.filter((el) => el.url !== product.url);
+        localStorage.setItem("cartProducts", JSON.stringify(newCartProducts));
+        return newCartProducts;
+      });
       setRemovable(false);
     }
     setAddedToCart((toggle) => !toggle);
@@ -51,7 +51,7 @@ export default function Card({ product }) {
           </button>
         </a>
         <button
-          className={`add-to-cart-btn ${addedToCart && "added"} ${removable && "removable"}`}
+          className={`add-to-cart-btn ${addedToCart ? "added" : ""} ${removable ? "removable" : ""}`}
           onClick={handleAddToCart}
         ></button>
       </div>
