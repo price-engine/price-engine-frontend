@@ -110,7 +110,7 @@ function HomePage() {
               onChange={(e) => (searchValue.current = e.target.value.trim())}
               autoFocus
             />
-            <label className="exact-match-label" for="exact-match-checkbox">
+            <label className="exact-match-label" htmlFor="exact-match-checkbox">
               <input
                 ref={exactMatchRef}
                 type="checkbox"
@@ -208,16 +208,18 @@ function HomePage() {
   );
 }
 function SidebarContainer({ hasScrolledDown, setCartShown }) {
-  <div className="sidebar-btns-container">
-    {hasScrolledDown && (
-      <button className="scrollup-btn sidebar-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-        ^
+  return (
+    <div className="sidebar-btns-container">
+      {hasScrolledDown && (
+        <button className="scrollup-btn sidebar-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+          ^
+        </button>
+      )}
+      <button className="cart-btn sidebar-btn" onClick={() => setCartShown(true)}>
+        🛒
       </button>
-    )}
-    <button className="cart-btn sidebar-btn" onClick={() => setCartShown(true)}>
-      🛒
-    </button>
-  </div>;
+    </div>
+  );
 }
 function Footer() {
   return (
