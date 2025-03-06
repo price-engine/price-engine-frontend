@@ -199,38 +199,46 @@ function HomePage() {
         </div>
         {loading && products?.length > 0 && <span className="loader scrolling-loader"></span>}
       </main>
-      <footer>
-        <span className="socia-media-icons-container">
-          <a href="https://www.linkedin.com/in/khalidwaleed0/" target="_blank" rel="nofollow noreferrer">
-            <img src={linkedinIcon} className="linkedin-icon" alt="LinkedIn Profile" />
-          </a>
-          <a href="https://github.com/khalidwaleed0" target="_blank" rel="nofollow noreferrer">
-            <img src={githubIcon} className="github-icon" alt="Github Profile" />
-          </a>
-        </span>
-        <p>Made with ❤️ © 2025 Price Engine.</p>
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSd_K3p83JOWs6tXmFxc8I3rBROoUK7Cr26llXlellUep1Sk2A/viewform?usp=header"
-          target="_blank"
-          rel="nofollow noreferrer"
-        >
-          ✍🏻 Send feedback
-        </a>
-      </footer>
-      <div className="sidebar-btns-container">
-        {hasScrolledDown && (
-          <button className="scrollup-btn sidebar-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            ^
-          </button>
-        )}
-        <button className="cart-btn sidebar-btn" onClick={() => setCartShown(true)}>
-          🛒
-        </button>
-      </div>
+      <Footer />
+      <SidebarContainer hasScrolledDown={hasScrolledDown} setCartShown={setCartShown} />
       {cartShown && (
         <CartOverlay cartProducts={cartProducts} setCartProducts={setCartProducts} setCartShown={setCartShown} />
       )}
     </div>
+  );
+}
+function SidebarContainer({ hasScrolledDown, setCartShown }) {
+  <div className="sidebar-btns-container">
+    {hasScrolledDown && (
+      <button className="scrollup-btn sidebar-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+        ^
+      </button>
+    )}
+    <button className="cart-btn sidebar-btn" onClick={() => setCartShown(true)}>
+      🛒
+    </button>
+  </div>;
+}
+function Footer() {
+  return (
+    <footer>
+      <span className="socia-media-icons-container">
+        <a href="https://www.linkedin.com/in/khalidwaleed0/" target="_blank" rel="nofollow noreferrer">
+          <img src={linkedinIcon} className="linkedin-icon" alt="LinkedIn Profile" />
+        </a>
+        <a href="https://github.com/khalidwaleed0" target="_blank" rel="nofollow noreferrer">
+          <img src={githubIcon} className="github-icon" alt="Github Profile" />
+        </a>
+      </span>
+      <p>Made with ❤️ © 2025 Price Engine.</p>
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSd_K3p83JOWs6tXmFxc8I3rBROoUK7Cr26llXlellUep1Sk2A/viewform?usp=header"
+        target="_blank"
+        rel="nofollow noreferrer"
+      >
+        ✍🏻 Send feedback
+      </a>
+    </footer>
   );
 }
 
