@@ -3,15 +3,17 @@
   left: 0;
   top: 0;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.2);
+  animation: cart-overlay-darken 0.25s ease-in-out forwards;
 
   .cart-overlay {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 24px;
     width: min(560px, 100%);
     height: 100vh;
     background-color: #f7f7f7;
+    animation: cart-slide 0.25s ease-in-out forwards;
     .price-total {
       margin-top: auto;
       margin-left: 16px;
@@ -118,5 +120,21 @@
         user-select: none;
       }
     }
+  }
+}
+@keyframes cart-overlay-darken {
+  0% {
+    background-color: rgba(247, 247, 247, 0.2); /* Start with the darker color */
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.2); /* End with the brighter color */
+  }
+}
+@keyframes cart-slide {
+  0% {
+    left: -800px;
+  }
+  100% {
+    left: 0;
   }
 }
