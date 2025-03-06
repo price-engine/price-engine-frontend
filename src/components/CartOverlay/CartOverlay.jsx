@@ -34,7 +34,7 @@ export default function CartOverlay({ cartProducts, setCartProducts, setCartShow
         </div>
         <div className="cards-container">
           {cartProducts.map((product, i) => {
-            return <CartCard product={product} setCartProducts={setCartProducts} key={product.url} />;
+            return <CartCard product={product} setCartProducts={setCartProducts} editMode={true} key={product.url} />;
           })}
         </div>
         <h3 className="price-total">
@@ -54,7 +54,7 @@ export default function CartOverlay({ cartProducts, setCartProducts, setCartShow
   );
 }
 
-function CartCard({ product, setCartProducts }) {
+export function CartCard({ product, setCartProducts, editMode }) {
   function handleQuantityChange(changeAmount) {
     setCartProducts((oldProducts) => {
       let newProducts = [...oldProducts];
@@ -75,7 +75,6 @@ function CartCard({ product, setCartProducts }) {
   }
   return (
     <div className="cart-card">
-      {product.shop?.onlineOnly && <span className="online-only">&#x2022; Online Only</span>}
       <img className="product-image" src={product.imgUrl} referrerPolicy="no-referrer" alt={product.name} />
       <div className="name-container">
         <a className="name" title={product.name} href={product.url}>
@@ -91,17 +90,24 @@ function CartCard({ product, setCartProducts }) {
         </a>
       </div>
       <h3 className="price">{product.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} EGP</h3>
-      <button className="remove-btn" onClick={handleRemoveCard}>
-        ⛔
-      </button>
+      {editMode && (
+        <button className="remove-btn" onClick={handleRemoveCard}>
+          ⛔
+        </button>
+      )}
+
       <div className="quantity-container">
-        <span className="decrease-quantity-btn" onClick={() => handleQuantityChange(-1)}>
-          -
-        </span>
+        {editMode && (
+          <span className="decrease-quantity-btn" onClick={() => handleQuantityChange(-1)}>
+            -
+          </span>
+        )}
         <p className="quantity">{product.quantity ?? 1}</p>
-        <span className="increase-quantity-btn" onClick={() => handleQuantityChange(1)}>
-          +
-        </span>
+        {editMode && (
+          <span className="increase-quantity-btn" onClick={() => handleQuantityChange(1)}>
+            +
+          </span>
+        )}
       </div>
     </div>
   );

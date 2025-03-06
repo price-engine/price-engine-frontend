@@ -16,90 +16,10 @@
 }
 img {
   color: transparent; /*Fixes firefox loading img alt before image loading*/
-}
-.app {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  padding: 0 15%;
-  background-color: #f7f7f7;
-  min-height: 100vh;
+  /* fixes img inside anchor not aligned with other flex elements (4px difference) */
+  vertical-align: bottom;
 }
 
-.app-logo {
-  width: 240px;
-  height: 240px;
-  padding: 12px 0;
-}
-h1 {
-  font-size: 0;
-}
-.app-header {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-.inputs-container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 8px;
-}
-.search-input-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-
-  .exact-match-label {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    display: flex;
-    gap: 1px;
-    align-items: baseline;
-    right: 0;
-    padding: 8px;
-    color: #a9a9a9;
-    font-weight: bold;
-    user-select: none;
-    cursor: pointer;
-    &:has(input:checked) {
-      color: var(--light-green);
-    }
-    input {
-      margin: 0;
-      padding: 0;
-      position: relative;
-      top: 1.5px;
-      accent-color: var(--light-green);
-      cursor: pointer;
-    }
-  }
-}
-.price-inputs-container {
-  display: flex;
-  gap: 8px;
-}
-.governorates-categories-container {
-  display: flex;
-  gap: 8px;
-}
-.governorates-categories-container .combobox {
-  flex: 1;
-}
-#search-input {
-  flex: 1;
-  outline: none;
-  padding: 6px;
-  font-size: 18px;
-  /* clears the ‘X’ from Chrome */
-  &::-webkit-search-decoration,
-  &::-webkit-search-cancel-button,
-  &::-webkit-search-results-button,
-  &::-webkit-search-results-decoration {
-    display: none;
-  }
-}
 input[type="number"] {
   outline: none;
   border-radius: 6px;
@@ -111,42 +31,7 @@ input[type="number"] {
   color: black;
   font-size: 18px;
 }
-#search-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  margin-left: auto;
-  padding: 0px 12px;
-  border-radius: 6px;
-  background-color: var(--light-green);
-  font-size: 18px;
-  font-weight: bold;
-  user-select: none;
-  img.favicon {
-    color: white;
-    filter: brightness(0%) invert(100%);
-    width: 22px;
-    height: 22px;
-  }
-}
-main {
-  flex: 1;
-}
-.main-cards-container {
-  /* User input values */
-  --grid-layout-gap: 12px;
-  --grid-column-count: 4;
-  --grid-item--min-width: 240px;
 
-  /* Calculated values */
-  --gap-count: calc(var(--grid-column-count) - 1);
-  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
-  --grid-item--max-width: calc((100% - var(--total-gap-width)) / var(--grid-column-count));
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
-  gap: 12px;
-}
 input {
   border: 2px solid hsl(0, 0%, 90%);
   border-radius: 6px;
@@ -154,85 +39,7 @@ input {
 input:focus {
   border: 2px solid var(--light-green);
 }
-.app-link {
-  color: #61dafb;
-}
-.sidebar-btns-container {
-  position: fixed;
-  bottom: 20px;
-  right: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.cart-btn {
-  padding: 8px;
-  color: transparent;
-  text-shadow: 0 0 0 white;
-  font-size: 22px;
-}
-.scrollup-btn {
-  font-size: 28px;
-  padding-top: 8px;
-}
-.sidebar-btn {
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--light-green);
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  user-select: none;
-}
-.loader {
-  width: 32px;
-  height: 32px;
-  border: 5px solid var(--light-green);
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-  &.scrolling-loader {
-    margin: 72px 0;
-  }
-}
 
-footer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  column-gap: 36px;
-  row-gap: 10px;
-  border-top: 1px solid #e0e0e0;
-  padding: 10px 0;
-  margin-top: 12px;
-  p {
-    margin: 0;
-  }
-  .socia-media-icons-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    img {
-      width: 22px;
-      height: 22px;
-    }
-    .linkedin-icon:hover {
-      filter: contrast(0) invert(25%) sepia(22%) saturate(6931%) hue-rotate(197deg) contrast(85%);
-    }
-    .github-icon:hover {
-      filter: brightness(0);
-    }
-  }
-}
-img {
-  /* fixes img inside anchor not aligned with other flex elements (4px difference) */
-  vertical-align: bottom;
-}
 a {
   text-decoration: none;
   &:visited {
@@ -243,50 +50,4 @@ button {
   border: none;
   color: white;
   cursor: pointer;
-}
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@media (max-width: 1583px) {
-  .governorates-categories-container {
-    flex-direction: column;
-  }
-}
-@media (max-width: 1202px) {
-  .app-header {
-    flex-direction: column;
-    margin-bottom: 24px;
-    .inputs-container {
-      align-self: stretch;
-    }
-  }
-}
-@media (max-width: 842px) {
-  .app {
-    padding: 0 10%;
-  }
-  .price-inputs-container {
-    flex-wrap: wrap;
-    .combobox.sort {
-      flex: 1 0 100%;
-    }
-    input {
-      flex: 1;
-    }
-  }
-  .sidebar-btns-container {
-    left: 14px;
-    .scrollup-btn {
-      padding-top: 12px;
-    }
-  }
-  #search-btn {
-    height: 40px;
-    flex: 1 0 100%;
-  }
 }
