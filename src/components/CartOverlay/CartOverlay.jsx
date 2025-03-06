@@ -69,7 +69,7 @@ function CartCard({ product, setCartProducts }) {
     setCartProducts((oldProducts) => {
       let newProducts = oldProducts.filter((p) => p.url !== product.url);
       localStorage.setItem("cartProducts", JSON.stringify(newProducts));
-      document.querySelector(`.card .primary-btn.added[href="${product.url}"] + .add-to-cart-btn`)?.click();
+      document.querySelector(`.card .primary-btn[href="${product.url}"] + .add-to-cart-btn.added`)?.click();
       return newProducts;
     });
   }
