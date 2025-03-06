@@ -4,6 +4,6 @@
   align-items: center;
 
   .cards-container {
-    width: 50%;
+    width: min(100%, 900px);
   }
 }
