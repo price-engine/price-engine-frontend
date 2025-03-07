@@ -63,11 +63,11 @@ function HomePage() {
       headers: { cacheControl: "noCache" },
     });
     const newProducts = await res.json();
+    setLoading(false);
     if (newProducts.length === 0) isLastPage.current = true;
     setProducts((oldProducts) => {
       let totalProducts = oldProducts.concat(newProducts);
       setResultsExist(totalProducts.length > 0);
-      setLoading(false);
       return totalProducts;
     });
   }
