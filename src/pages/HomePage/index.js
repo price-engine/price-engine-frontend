@@ -89,7 +89,7 @@ function HomePage() {
   useEffect(() => {
     const medamaScript = document.createElement("script");
     medamaScript.src = "https://medama.price-engine.com/script.js";
-    medamaScript.async = true;
+    medamaScript.defer = true;
     document.body.appendChild(medamaScript);
     return () => document.body.removeChild(medamaScript);
   }, [products]);
