@@ -15,7 +15,9 @@ export default function ShareCartPage() {
     <>
       {cartProducts.length > 0 && (
         <div className="share-page">
-          <img className="app-logo" src={`${process.env.PUBLIC_URL}/logo.png`} alt="Price Engine" />
+          <a href="https://price-engine.com/">
+            <img className="app-logo" src={`${process.env.PUBLIC_URL}/logo.png`} alt="Price Engine" />
+          </a>
           <div className="cards-container">
             {cartProducts.map((product, i) => {
               return <CartCard product={product} key={product.url} />;
