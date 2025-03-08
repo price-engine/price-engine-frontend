@@ -102,7 +102,10 @@ export function CartCard({ product, setCartProducts, editMode }) {
             -
           </span>
         )}
-        <p className="quantity">{product.quantity ?? 1}</p>
+        <p className="quantity">
+          {!editMode && "Quantity: "}
+          {product.quantity ?? 1}
+        </p>
         {editMode && (
           <span className="increase-quantity-btn" onClick={() => handleQuantityChange(1)}>
             +
