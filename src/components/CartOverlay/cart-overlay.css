@@ -105,15 +105,18 @@
       position: absolute;
       display: flex;
       align-items: center;
-      gap: 8px;
-      bottom: 0;
+      gap: 12px;
+      bottom: 2px;
       left: 50%;
       transform: translate(-50%, 0);
       p {
         margin: 0;
       }
       span {
-        padding: 0 8px;
+        width: 32px;
+        height: 32px;
+        color: white;
+        background-color: var(--light-green);
         font-size: 24px;
         font-weight: bold;
         cursor: pointer;
