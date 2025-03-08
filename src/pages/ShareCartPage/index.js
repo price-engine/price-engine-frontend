@@ -11,6 +11,13 @@ export default function ShareCartPage() {
       .then((res) => res.json())
       .then((res) => setCartProducts(res.cartProducts));
   }, [params]);
+  useEffect(() => {
+    const medamaScript = document.createElement("script");
+    medamaScript.src = "https://medama.price-engine.com/script.js";
+    medamaScript.defer = true;
+    document.body.appendChild(medamaScript);
+    return () => document.body.removeChild(medamaScript);
+  }, [params]);
   return (
     <>
       {cartProducts.length > 0 && (
