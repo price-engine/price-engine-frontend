@@ -9,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/share/:id" element={<ShareCartPage />} />
         <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   );
