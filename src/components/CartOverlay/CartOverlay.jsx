@@ -75,7 +75,7 @@ export function CartCard({ product, setCartProducts, editMode }) {
   }
   return (
     <div className="cart-card">
-      <img className="product-image" src={product.imgUrl} rel="nofollow noopener" alt={product.name} />
+      <img className="product-image" src={product.imgUrl} referrerPolicy="no-referrer" alt={product.name} />
       <div className="name-container">
         <a className="name" title={product.name} href={product.url} target="_blank" rel="nofollow noopener">
           {product.name}
@@ -86,7 +86,7 @@ export function CartCard({ product, setCartProducts, editMode }) {
             className="shop-logo"
             title={product.shop.name}
             alt={product.shop.name}
-            rel="nofollow noopener"
+            referrerPolicy="no-referrer"
           />
         </a>
       </div>

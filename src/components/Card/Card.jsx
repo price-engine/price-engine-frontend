@@ -26,7 +26,7 @@ export default function Card({ product, setCartProducts }) {
   return (
     <div className="card">
       {product.shop?.onlineOnly && <span className="online-only">&#x2022; Online Only</span>}
-      <img className="product-image" src={product.imgUrl} rel="nofollow noopener" alt={product.name} />
+      <img className="product-image" src={product.imgUrl} referrerPolicy="no-referrer" alt={product.name} />
       <div className="card-name-container">
         <h4 className="card-name">{product.name}</h4>
         <span className="tooltip">{product.name}</span>
@@ -39,7 +39,7 @@ export default function Card({ product, setCartProducts }) {
             className="shop-logo"
             title={product.shop.name}
             alt={product.shop.name}
-            rel="nofollow noopener"
+            referrerPolicy="no-referrer"
           />
         </a>
         <a className="primary-btn" href={product.url} target="_blank" rel="nofollow noopener">
