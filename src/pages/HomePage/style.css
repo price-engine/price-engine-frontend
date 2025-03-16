@@ -50,7 +50,7 @@ h1 {
       padding: 0;
       position: relative;
       top: 1.5px;
-      accent-color: var(--light-green);
+      accent-color: #18bd78;
       cursor: pointer;
     }
   }

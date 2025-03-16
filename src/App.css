@@ -1,6 +1,6 @@
 :root {
   --dark-green: #339462;
-  --light-green: #31d681;
+  --light-green: rgb(39, 197, 116);
 }
 * {
   box-sizing: border-box;
@@ -50,4 +50,7 @@ button {
   border: none;
   color: white;
   cursor: pointer;
+  &:hover {
+    filter: saturate(110%);
+  }
 }

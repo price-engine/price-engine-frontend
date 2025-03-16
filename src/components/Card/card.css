@@ -72,11 +72,8 @@
   border-radius: 6px;
   height: 100%;
   color: white;
-  background-color: #0ad17e;
+  background-color: var(--light-green);
   font-size: 18px;
-  &:hover {
-    filter: saturate(110%);
-  }
 }
 .card button.add-to-cart-btn {
   color: transparent;

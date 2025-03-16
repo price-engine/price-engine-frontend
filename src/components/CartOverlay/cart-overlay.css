@@ -42,7 +42,7 @@
     }
 
     .copy-link-btn {
-      background-color: #0ad17e;
+      background-color: var(--light-green);
       padding: 8px 24px;
       border-radius: 16px;
       align-self: center;
