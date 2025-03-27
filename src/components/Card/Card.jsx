@@ -46,7 +46,7 @@ export default function Card({ product, setCartProducts }) {
           <button
             data-m:click={`clicked_shop=${product.shop.name};clicked_product=${
               product.name
-            };clicked_link=${encodeURIComponent(product.url)}`}
+            };clicked_link=${product.url.replace(/=/gm, "%3D")}`}
           >
             Visit Page
           </button>
