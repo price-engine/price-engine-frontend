@@ -44,7 +44,9 @@ export default function Card({ product, setCartProducts }) {
         </a>
         <a className="primary-btn" href={product.url} target="_blank" rel="nofollow noopener">
           <button
-            data-m:click={`clicked_shop=${product.shop.name};clicked_product=${product.name};clicked_link=${product.url}`}
+            data-m:click={`clicked_shop=${product.shop.name};clicked_product=${
+              product.name
+            };clicked_link=${encodeURIComponent(product.url)}`}
           >
             Visit Page
           </button>
