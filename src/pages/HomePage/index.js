@@ -26,7 +26,6 @@ function HomePage() {
   const [cartProducts, setCartProducts] = useState(JSON.parse(localStorage.getItem("cartProducts") || "[]"));
   const searchBtnRef = useRef();
   const isLastPage = useRef(false);
-  const exactMatchRef = useRef();
   const searchValue = useRef("");
   const page = useRef(1);
 
@@ -44,8 +43,7 @@ function HomePage() {
   }
   function generateQueryStatement() {
     let queryStatement = {
-      name:
-        exactMatchRef.current.checked && searchValue.current !== "" ? `"${searchValue.current}"` : searchValue.current,
+      name: `"${searchValue.current.trim().replaceAll(/\s+/gm, "\"\"")}"`,
       page: page.current,
       sortAsc: selectedSort.value,
     };
@@ -110,16 +108,6 @@ function HomePage() {
               onChange={(e) => (searchValue.current = e.target.value.trim())}
               autoFocus
             />
-            <label className="exact-match-label" htmlFor="exact-match-checkbox">
-              <input
-                ref={exactMatchRef}
-                type="checkbox"
-                id="exact-match-checkbox"
-                name="exact-match-checkbox"
-                defaultChecked="true"
-              />
-              Exact Match
-            </label>
           </div>
           <div className="governorates-categories-container">
             <ComboBox
