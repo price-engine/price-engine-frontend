@@ -28,32 +28,6 @@ h1 {
   position: relative;
   display: flex;
   align-items: center;
-
-  .exact-match-label {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    display: flex;
-    gap: 1px;
-    align-items: baseline;
-    right: 0;
-    padding: 8px;
-    color: #a9a9a9;
-    font-weight: bold;
-    user-select: none;
-    cursor: pointer;
-    &:has(input:checked) {
-      color: var(--light-green);
-    }
-    input {
-      margin: 0;
-      padding: 0;
-      position: relative;
-      top: 1.5px;
-      accent-color: #18bd78;
-      cursor: pointer;
-    }
-  }
 }
 .price-inputs-container {
   display: flex;
