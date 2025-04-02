@@ -42,8 +42,9 @@ function HomePage() {
     fetchProducts();
   }
   function generateQueryStatement() {
+    let searchTerm = searchValue.current.trim();
     let queryStatement = {
-      name: `"${searchValue.current.trim().replaceAll(/\s+/gm, "\"\"")}"`,
+      name: searchTerm === "" ? "" : `"${searchTerm.replaceAll(/\s+/gm, '""')}"`,
       page: page.current,
       sortAsc: selectedSort.value,
     };
