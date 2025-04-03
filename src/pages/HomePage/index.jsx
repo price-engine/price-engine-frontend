@@ -97,7 +97,7 @@ function HomePage() {
     <div className="app">
       <header className="app-header">
         <h1 className="">Price Engine Best Hardware Prices in Egypt</h1>
-        <img className="app-logo" src={`${process.env.PUBLIC_URL}/logo.png`} alt="Price Engine" />
+        <img className="app-logo" src="/logo.png" alt="Price Engine" />
         <div className="inputs-container">
           <div className="search-input-container">
             <input
@@ -172,7 +172,7 @@ function HomePage() {
                 selectedSort.label
               };minPrice=${minPrice};maxPrice=${maxPrice}`}
             >
-              <img className="favicon" src={`${process.env.PUBLIC_URL}/favicon.ico`} alt="" />
+              <img className="favicon" src="/favicon.ico" alt="" />
               Search
             </button>
           </div>

@@ -1,6 +1,6 @@
 import "./App.css";
-import HomePage from "./pages/HomePage";
-import ShareCartPage from "./pages/ShareCartPage/index.js";
+import HomePage from "./pages/HomePage/index.jsx";
+import ShareCartPage from "./pages/ShareCartPage/index.jsx";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 
 function App() {

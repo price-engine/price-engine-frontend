@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { CartCard } from "../../components/CartOverlay/CartOverlay";
+import { CartCard } from "../../components/CartOverlay/CartOverlay.jsx";
 import "./style.css";
 
 export default function ShareCartPage() {
@@ -23,7 +23,7 @@ export default function ShareCartPage() {
       {cartProducts.length > 0 && (
         <div className="share-page">
           <a href="https://price-engine.com/">
-            <img className="app-logo" src={`${process.env.PUBLIC_URL}/logo.png`} alt="Price Engine" />
+            <img className="app-logo" src="/logo.png" alt="Price Engine" />
           </a>
           <div className="cards-container">
             {cartProducts.map((product, i) => {

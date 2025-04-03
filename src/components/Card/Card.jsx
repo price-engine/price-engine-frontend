@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./card.css";
-export const shopLogos = importShopLogos(require.context("../../assets/shopLogos", false, /\.(webp|png|jpe?g|svg)$/));
+export const shopLogos = importShopLogos();
 export default function Card({ product, setCartProducts }) {
   const [addedToCart, setAddedToCart] = useState(false);
   const [removable, setRemovable] = useState(false);
@@ -60,10 +60,24 @@ export default function Card({ product, setCartProducts }) {
   );
 }
 
-function importShopLogos(r) {
-  let images = {};
-  r.keys().map((item, index) => {
-    images[item.replace(/(\.\/)|(\.\w+$)/g, "")] = r(item);
-  });
+// function importShopLogos(r) {
+//   let images = {};
+//   r.keys().map((item, index) => {
+//     images[item.replace(/(\.\/)|(\.\w+$)/g, "")] = r(item);
+//   });
+//   return images;
+// }
+function importShopLogos() {
+  const images = {};
+  const modules = import.meta.glob('../../assets/shopLogos/*.{webp,png,jpg,jpeg,svg}', { eager: true });
+
+  for (const path in modules) {
+    const fileName = path
+      .split('/')
+      .pop() // Get the file name from the path
+      .replace(/\.\w+$/, ''); // Remove the file extension
+    images[fileName] = modules[path].default; // Assign the imported file
+  }
+
   return images;
 }
