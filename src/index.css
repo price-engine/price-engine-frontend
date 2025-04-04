@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 html:has(.cart-overlay-container) {
   overflow: hidden;
 }
