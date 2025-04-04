@@ -7,6 +7,7 @@ import ComboBox from "../../components/ComboBox/ComboBox.jsx";
 import linkedinIcon from "../../assets/icons/linkedin.svg";
 import githubIcon from "../../assets/icons/github.svg";
 import CartOverlay from "../../components/CartOverlay/CartOverlay.jsx";
+import { scrollWhenKeyboardShown } from "../../Utils.js";
 
 function HomePage() {
   const sortOptions = [
@@ -130,12 +131,7 @@ function HomePage() {
           </div>
           <div className="price-inputs-container">
             <Select
-              onMenuOpen={() => {
-                if (window.innerWidth < 843)
-                  new Promise((r) => setTimeout(r, 200)).then(() =>
-                    document.querySelector(".combobox.sort").scrollIntoView({ behavior: "smooth", block: "center" })
-                  );
-              }}
+              onMenuOpen={() => scrollWhenKeyboardShown(".combobox.sort", "center")}
               className="combobox sort"
               options={sortOptions}
               value={selectedSort}

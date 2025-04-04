@@ -39,6 +39,7 @@ h1 {
 }
 .governorates-categories-container .combobox {
   flex: 1;
+  scroll-margin-top: 8px;
 }
 #search-input {
   flex: 1;
