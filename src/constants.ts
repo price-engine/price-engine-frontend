@@ -27,23 +27,24 @@ export const governorates = [
   { value: "South_Sinai", label: "South Sinai" },
   { value: "Suez", label: "Suez" },
 ];
-export const categories = [
+type Category = { label: String; options: { value: String; label: String; alternativeLabel?: String }[] };
+export const categories: Category[] = [
   {
     label: "PC Parts",
     options: [
       { value: "bundle", label: "bundle" },
       { value: "motherboard,motherboardIntel,motherboardAmd", label: "motherboard" },
-      { value: "cpu,cpuAmd,cpuIntel", label: "cpu" },
-      { value: "gpu", label: "gpu" },
-      { value: "gpuUsed", label: "gpu used" },
-      { value: "ram", label: "ram" },
-      { value: "ramUsed", label: "ram used" },
-      { value: "caseCombo", label: "case+psu combo" },
+      { value: "cpu,cpuAmd,cpuIntel", label: "cpu", alternativeLabel: "processor" },
+      { value: "gpu", label: "gpu", alternativeLabel: "graphics card" },
+      { value: "gpuUsed", label: "gpu (used)", alternativeLabel: "graphics card" },
+      { value: "ram", label: "ram", alternativeLabel: "memory" },
+      { value: "ramUsed", label: "ram (used)", alternativeLabel: "memory" },
+      { value: "caseCombo", label: "case+psu combo", alternativeLabel: "power supply" },
       { value: "case", label: "case" },
-      { value: "psu", label: "psu" },
-      { value: "psuUsed", label: "psu used" },
+      { value: "psu", label: "psu", alternativeLabel: "power supply" },
+      { value: "psuUsed", label: "psu (used)", alternativeLabel: "power supply" },
       { value: "monitor", label: "monitor" },
-      { value: "monitorUsed", label: "monitor used" },
+      { value: "monitorUsed", label: "monitor (used)" },
       { value: "cooling,cpuCooler,airCooler,liquidCooler,thermalPaste,caseFan", label: "COOLING (ALL)" },
       { value: "cpuCooler,airCooler,liquidCooler", label: "cpu cooler (air+liquid)" },
       { value: "airCooler", label: "air cooler" },
@@ -57,7 +58,7 @@ export const categories = [
     label: "Laptop",
     options: [
       { value: "laptop", label: "laptop" },
-      { value: "laptopUsed,laptopOpenBox", label: "laptop used" },
+      { value: "laptopUsed,laptopOpenBox", label: "laptop (used)" },
       { value: "laptopBag", label: "laptop bag" },
       { value: "laptopRam", label: "laptop ram" },
       { value: "laptopBattery", label: "laptop battery" },
@@ -69,13 +70,13 @@ export const categories = [
   {
     label: "Storage",
     options: [
-      { value: "storage,ssd,ssdSata,ssdM2,hdd", label: "STORAGE (ALL)" },
+      { value: "storage,ssd,ssdSata,ssdM2,hdd", label: "STORAGE (ALL)", alternativeLabel: "nvme" },
       { value: "storageUsed,hddUsed", label: "STORAGE USED (ALL)" },
-      { value: "ssd,ssdSata,ssdM2", label: "ssd (sata+m.2)" },
+      { value: "ssd,ssdSata,ssdM2", label: "ssd (sata+m.2)", alternativeLabel: "nvme" },
       { value: "ssdSata", label: "ssd sata" },
-      { value: "ssdM2", label: "ssd m.2" },
+      { value: "ssdM2", label: "ssd m.2", alternativeLabel: "nvme" },
       { value: "hdd", label: "hdd" },
-      { value: "hddUsed", label: "hdd used" },
+      { value: "hddUsed", label: "hdd (used)" },
       { value: "memoryCard", label: "memory card" },
       { value: "flashDrives", label: "flash drives" },
       { value: "externalStorage", label: "external storage" },
@@ -95,10 +96,10 @@ export const categories = [
       { value: "mouse,wirelessMouse", label: "mouse" },
       { value: "mousePad", label: "mousepad" },
       { value: "headphone", label: "headphone" },
-      { value: "webcam", label: "webcam" },
+      { value: "webcam", label: "webcam", alternativeLabel:"camera" },
       { value: "microphone", label: "microphone" },
       { value: "speaker", label: "speaker" },
-      { value: "gamepad", label: "gamepad" },
+      { value: "gamepad", label: "gamepad", alternativeLabel:"controller" },
       { value: "dongle", label: "dongle" },
       { value: "cable,converter", label: "cable/converter" },
     ],
@@ -126,7 +127,7 @@ export const categories = [
   {
     label: "Console",
     options: [
-      { value: "gamingConsole", label: "gaming console" },
+      { value: "gamingConsole", label: "gaming console",alternativeLabel:"playstation xbox" },
       { value: "consoleCharger", label: "console charger" },
       { value: "consoleAccount", label: "console account" },
       { value: "games", label: "games" },
