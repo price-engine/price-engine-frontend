@@ -27,7 +27,7 @@ function HomePage() {
   const [cartProducts, setCartProducts] = useState(JSON.parse(localStorage.getItem("cartProducts") || "[]"));
   const searchBtnRef = useRef();
   const isLastPage = useRef(false);
-  const searchValue = useRef("");
+  const [searchValue, setSearchValue] = useState("");
   const page = useRef(1);
 
   function handleSearchInput(e) {
@@ -43,9 +43,8 @@ function HomePage() {
     fetchProducts();
   }
   function generateQueryStatement() {
-    let searchTerm = searchValue.current.trim();
     let queryStatement = {
-      name: searchTerm === "" ? "" : `"${searchTerm.replaceAll(/\s+/gm, '""')}"`,
+      name: searchValue === "" ? "" : `"${searchValue.replaceAll(/\s+/gm, '""')}"`,
       page: page.current,
       sortAsc: selectedSort.value,
     };
@@ -86,14 +85,6 @@ function HomePage() {
     return () => window.removeEventListener("scroll", handleScrolling);
   }, [products, loading, isLastPage]);
 
-  useEffect(() => {
-    const medamaScript = document.createElement("script");
-    medamaScript.src = "https://medama.price-engine.com/script.js";
-    medamaScript.defer = true;
-    document.body.appendChild(medamaScript);
-    return () => document.body.removeChild(medamaScript);
-  }, [products]);
-
   return (
     <div className="app">
       <header className="app-header">
@@ -107,7 +98,7 @@ function HomePage() {
               placeholder="Search..."
               name="search"
               onKeyUp={handleSearchInput}
-              onChange={(e) => (searchValue.current = e.target.value.trim())}
+              onChange={(e) => setSearchValue(e.target.value.trim())}
               autoFocus
             />
           </div>
@@ -162,7 +153,7 @@ function HomePage() {
               ref={searchBtnRef}
               id="search-btn"
               onClick={search}
-              data-m:click={`searchValue=${searchValue.current};selectedGovernorate=${selectedGovernorate.map(
+              data-m:click={`searchValue=${searchValue};selectedGovernorate=${selectedGovernorate.map(
                 (g) => g.label
               )};selectedCategory=${selectedCategory.map((c) => c.label)};selectedSort=${
                 selectedSort.label
