@@ -10,3 +10,17 @@ export function scrollWhenKeyboardShown(cssSelector, block = "start") {
     }, 10); // The keyboard does not show up immediately so I check every 10ms.
   }
 }
+
+export function generateQueryStatement(filters, page) {
+  let queryStatement = {
+    name: filters.searchValue === "" ? "" : `"${filters.searchValue.replaceAll(/\s+/gm, '""')}"`,
+    page: page,
+    sortAsc: filters.sort.value,
+  };
+  if (!isNaN(filters.minPrice)) queryStatement.minPrice = filters.minPrice;
+  if (!isNaN(filters.maxPrice)) queryStatement.maxPrice = filters.maxPrice;
+  if (filters.category.length) queryStatement.category = filters.category?.map((cat) => cat.value);
+  if (filters.governorate.length)
+    queryStatement.location = filters.governorate?.map((gov) => gov.value).concat("Online");
+  return queryStatement;
+}

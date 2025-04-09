@@ -1,3 +1,8 @@
+export const sortOptions = [
+  { value: "1", label: "Price: low to high" },
+  { value: "-1", label: "Price: high to low" },
+];
+
 export const governorates = [
   { value: "Alexandria", label: "Alexandria" },
   { value: "Aswan", label: "Aswan" },
@@ -96,10 +101,10 @@ export const categories: Category[] = [
       { value: "mouse,wirelessMouse", label: "mouse" },
       { value: "mousePad", label: "mousepad" },
       { value: "headphone", label: "headphone" },
-      { value: "webcam", label: "webcam", alternativeLabel:"camera" },
+      { value: "webcam", label: "webcam", alternativeLabel: "camera" },
       { value: "microphone", label: "microphone" },
       { value: "speaker", label: "speaker" },
-      { value: "gamepad", label: "gamepad", alternativeLabel:"controller" },
+      { value: "gamepad", label: "gamepad", alternativeLabel: "controller" },
       { value: "dongle", label: "dongle" },
       { value: "cable,converter", label: "cable/converter" },
     ],
@@ -127,7 +132,7 @@ export const categories: Category[] = [
   {
     label: "Console",
     options: [
-      { value: "gamingConsole", label: "gaming console",alternativeLabel:"playstation xbox" },
+      { value: "gamingConsole", label: "gaming console", alternativeLabel: "playstation xbox" },
       { value: "consoleCharger", label: "console charger" },
       { value: "consoleAccount", label: "console account" },
       { value: "games", label: "games" },
