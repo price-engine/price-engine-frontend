@@ -71,7 +71,7 @@
     .name-container {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 12px;
       .shop-logo-container {
         margin-top: auto;
         align-self: start;
@@ -87,16 +87,18 @@
       }
     }
     .price {
-      flex: 0 0 auto;
-      align-self: end;
+      position: absolute;
+      right: 8px;
+      bottom: 2px;
       margin: 0;
       margin-left: auto;
       color: var(--light-green);
     }
     .remove-btn {
-      position: absolute;
+      align-self: start;
       top: 4px;
       right: 4px;
+      padding: 0;
       background-color: transparent;
       font-size: 20px;
       cursor: pointer;
@@ -107,7 +109,7 @@
       align-items: center;
       gap: 12px;
       bottom: 2px;
-      left: 50%;
+      left: calc(50% + 24px);
       transform: translate(-50%, 0);
       p {
         margin: 0;
