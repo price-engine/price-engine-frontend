@@ -132,7 +132,9 @@ main {
     margin: 72px 0;
   }
 }
-
+p.no-results {
+  text-wrap: balance;
+}
 footer {
   display: flex;
   justify-content: center;
