@@ -19,11 +19,11 @@ function HomePage() {
   });
   const [products, setProducts] = useState([]);
   const [hasScrolledDown, setHasScrolledDown] = useState(false);
-  const [resultsExist, setResultsExist] = useState(true);
   const [loading, setLoading] = useState(false);
   const [cartShown, setCartShown] = useState(false);
   const [cartProducts, setCartProducts] = useState(JSON.parse(localStorage.getItem("cartProducts") || "[]"));
   const isLastPage = useRef(false);
+  const [errorSentence, setErrorSentence] = useState("");
   const page = useRef(1);
   function search() {
     isLastPage.current = false;
@@ -33,18 +33,17 @@ function HomePage() {
   }
   async function fetchProducts() {
     setLoading(true);
+    setErrorSentence("");
     let queryStatement = generateQueryStatement(filters, page.current);
-    const res = await fetch("https://api.price-engine.com/search?" + new URLSearchParams(queryStatement), {
-      headers: { cacheControl: "noCache" },
-    });
-    const newProducts = await res.json();
-    setLoading(false);
-    if (newProducts.length === 0) isLastPage.current = true;
-    setProducts((oldProducts) => {
-      let totalProducts = oldProducts.concat(newProducts);
-      setResultsExist(totalProducts.length > 0);
-      return totalProducts;
-    });
+    return fetch("https://api.price-engine.com/search?" + new URLSearchParams(queryStatement))
+      .then((res) => res.json())
+      .then((newProducts) => {
+        setProducts((oldProducts) => [...oldProducts, ...newProducts]);
+        if (newProducts.length === 0) isLastPage.current = true;
+        if (newProducts.length + products.length === 0) setErrorSentence("No results found.");
+      })
+      .catch(() => setErrorSentence("Server down for maintenance! Try again in a few seconds."))
+      .finally(() => setLoading(false));
   }
   function handleScrolling() {
     if (document.documentElement.scrollTop > 200) setHasScrolledDown(true);
@@ -69,7 +68,7 @@ function HomePage() {
       </header>
       <main>
         {loading && <span className="loader"></span>}
-        {loading || resultsExist || <p className="no-results">No results found</p>}
+        {errorSentence !== "" && <p className="no-results">{errorSentence}</p>}
         <div className="main-cards-container">
           {products?.map((product) => {
             return <Card product={product} setCartProducts={setCartProducts} key={product.url} />;
