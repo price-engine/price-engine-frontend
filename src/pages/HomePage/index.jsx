@@ -54,6 +54,11 @@ function HomePage() {
       fetchProducts();
     }
   }
+  function isDuplicateProduct(product1, product2) {
+    if (product2)
+      return product1.url === product2.url && product1.name === product2.name && product1.price === product2.price;
+    return false;
+  }
   useEffect(() => {
     window.addEventListener("scroll", handleScrolling, { passive: true });
     return () => window.removeEventListener("scroll", handleScrolling);
@@ -70,8 +75,9 @@ function HomePage() {
         {loading && <span className="loader"></span>}
         {errorSentence !== "" && <p className="no-results">{errorSentence}</p>}
         <div className="main-cards-container">
-          {products?.map((product) => {
-            return <Card product={product} setCartProducts={setCartProducts} key={product.url} />;
+          {products?.map((product, i) => {
+            if (!isDuplicateProduct(product, products.at(i + 1)))
+              return <Card product={product} setCartProducts={setCartProducts} key={product.url} />;
           })}
         </div>
         {loading && products?.length > 0 && <span className="loader scrolling-loader"></span>}
