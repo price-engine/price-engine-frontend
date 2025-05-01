@@ -112,8 +112,8 @@ export const categories: Category[] = [
   {
     label: "Touch Devices",
     options: [
-      { value: "mobilePhone", label: "mobile phone" },
-      { value: "tablet", label: "tablet" },
+      { value: "mobilePhone,iphone", label: "mobile phone" },
+      { value: "tablet,ipad", label: "tablet" },
       { value: "graphicTablet", label: "graphic tablet" },
       {
         value: "phoneAccessories,smartwatch,powerbank,mobileCharger,carCharger,holder,pen,earphone,earbuds",
