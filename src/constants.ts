@@ -172,7 +172,7 @@ export const categories: Category[] = [
       { value: "tvBox", label: "tvBox" },
       { value: "printer_scanner", label: "printer/scanner" },
       { value: "catridge", label: "catridge" },
-      { value: "barcode", label: "barcode" },
+      { value: "barcode", label: "barcode/cashier", alternativeLabel: "point of sale pos receipt" },
       { value: "projector", label: "projector" },
       { value: "presenter", label: "presenter" },
       { value: "surveillance", label: "surveillance/security cameras" },
