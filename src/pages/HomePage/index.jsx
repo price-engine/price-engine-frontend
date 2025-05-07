@@ -77,7 +77,7 @@ function HomePage() {
         <div className="main-cards-container">
           {products?.map((product, i) => {
             if (!isDuplicateProduct(product, products.at(i + 1)))
-              return <Card product={product} setCartProducts={setCartProducts} key={product.url} />;
+              return <Card product={product} setCartProducts={setCartProducts} key={product._id} />;
           })}
         </div>
         {loading && products?.length > 0 && <span className="loader scrolling-loader"></span>}
