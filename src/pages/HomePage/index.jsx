@@ -76,7 +76,7 @@ function HomePage() {
         {errorSentence !== "" && <p className="no-results">{errorSentence}</p>}
         <div className="main-cards-container">
           {products?.map((product, i) => {
-            if (!isDuplicateProduct(product, products.at(i + 1)))
+            // if (!isDuplicateProduct(product, products.at(i + 1)))
               return <Card product={product} setCartProducts={setCartProducts} key={product._id} />;
           })}
         </div>
