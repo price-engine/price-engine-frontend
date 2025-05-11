@@ -40,7 +40,10 @@ function HomePage() {
       .then((newProducts) => {
         setProducts((oldProducts) => [...oldProducts, ...newProducts]);
         if (newProducts.length === 0) isLastPage.current = true;
-        if (newProducts.length + products.length === 0) setErrorSentence("No results found.");
+        if (newProducts.length + products.length === 0) {
+          if (containsArabic(filters.searchValue)) setErrorSentence("No results found. Try to type in English.");
+          else setErrorSentence("No results found. Check the spelling or use fewer words.");
+        }
       })
       .catch(() => setErrorSentence("Server down for maintenance! Try again in a few seconds."))
       .finally(() => setLoading(false));
@@ -54,16 +57,10 @@ function HomePage() {
       fetchProducts();
     }
   }
-  function isDuplicateProduct(product1, product2) {
-    if (product2)
-      return product1.url === product2.url && product1.name === product2.name && product1.price === product2.price;
-    return false;
-  }
   useEffect(() => {
     window.addEventListener("scroll", handleScrolling, { passive: true });
     return () => window.removeEventListener("scroll", handleScrolling);
   }, [products, loading]);
-
   return (
     <div className="app">
       <header className="app-header">
@@ -77,7 +74,7 @@ function HomePage() {
         <div className="main-cards-container">
           {products?.map((product, i) => {
             // if (!isDuplicateProduct(product, products.at(i + 1)))
-              return <Card product={product} setCartProducts={setCartProducts} key={product._id} />;
+            return <Card product={product} setCartProducts={setCartProducts} key={product._id} />;
           })}
         </div>
         {loading && products?.length > 0 && <span className="loader scrolling-loader"></span>}
@@ -90,5 +87,7 @@ function HomePage() {
     </div>
   );
 }
-
+function containsArabic(text) {
+  return /[\u0660-\u0669]|[ء-ي]/.test(text);
+}
 export default HomePage;
