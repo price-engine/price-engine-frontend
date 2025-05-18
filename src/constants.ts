@@ -132,10 +132,9 @@ export const categories: Category[] = [
   {
     label: "Console",
     options: [
-      { value: "gamingConsole", label: "gaming console", alternativeLabel: "playstation xbox" },
+      { value: "gamingConsole,games", label: "console / games", alternativeLabel: "playstation xbox nitendo wii" },
       { value: "consoleCharger", label: "console charger" },
       { value: "consoleAccount", label: "console account" },
-      { value: "games", label: "games" },
     ],
   },
   {
