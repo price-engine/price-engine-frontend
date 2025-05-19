@@ -75,16 +75,16 @@ export const categories: Category[] = [
   {
     label: "Storage",
     options: [
-      { value: "storage,ssd,ssdSata,ssdM2,hdd", label: "STORAGE (ALL)", alternativeLabel: "nvme" },
+      { value: "storage,ssd,ssdSata,ssdM2,hdd", label: "INTERNAL STORAGE (ALL)", alternativeLabel: "nvme hard" },
       { value: "storageUsed,hddUsed", label: "STORAGE USED (ALL)" },
       { value: "ssd,ssdSata,ssdM2", label: "ssd (sata+m.2)", alternativeLabel: "nvme" },
       { value: "ssdSata", label: "ssd sata" },
       { value: "ssdM2", label: "ssd m.2", alternativeLabel: "nvme" },
-      { value: "hdd", label: "hdd" },
-      { value: "hddUsed", label: "hdd (used)" },
+      { value: "hdd", label: "hdd", alternativeLabel: "hard"},
+      { value: "hddUsed", label: "hdd (used)", alternativeLabel: "hard"},
       { value: "memoryCard", label: "memory card" },
-      { value: "flashDrives", label: "flash drives" },
-      { value: "externalStorage", label: "external storage" },
+      { value: "flashDrives", label: "flash drives", alternativeLabel: "usb"},
+      { value: "externalStorage,externalHdd,externalSsd", label: "External Storage (ssd/hdd)", alternativeLabel: "usb"},
       { value: "rack", label: "rack" },
     ],
   },
@@ -132,7 +132,7 @@ export const categories: Category[] = [
   {
     label: "Console",
     options: [
-      { value: "gamingConsole,games", label: "console / games", alternativeLabel: "playstation xbox nitendo wii" },
+      { value: "gamingConsole,games", label: "console / games", alternativeLabel: "playstation xbox nitendo wii switch steam deck handheld" },
       { value: "consoleCharger", label: "console charger" },
       { value: "consoleAccount", label: "console account" },
     ],
