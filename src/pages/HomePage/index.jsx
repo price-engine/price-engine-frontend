@@ -42,7 +42,7 @@ function HomePage() {
         if (newProducts.length === 0) isLastPage.current = true;
         if (newProducts.length + products.length === 0) {
           if (containsArabic(filters.searchValue)) setErrorSentence("No results found. Try to type in English.");
-          else setErrorSentence("No results found. Check the spelling or use fewer words.");
+          else setErrorSentence("No results found. Check the spelling and spaces or use fewer words.");
         }
       })
       .catch(() => setErrorSentence("Server down for maintenance! Try again in a few seconds."))
