@@ -118,8 +118,9 @@ export const categories: Category[] = [
       {
         value: "phoneAccessories,smartwatch,powerbank,mobileCharger,carCharger,holder,pen,earphone,earbuds",
         label: "PHONE ACCESSORIES (ALL)",
+        alternativeLabel: "band"
       },
-      { value: "smartwatch", label: "smartwatch" },
+      { value: "smartwatch", label: "smartwatch / band" },
       { value: "powerbank", label: "powerbank" },
       { value: "mobileCharger", label: "mobile charger" },
       { value: "carCharger", label: "car charger" },
@@ -154,7 +155,7 @@ export const categories: Category[] = [
     label: "Networking",
     options: [
       { value: "network,networkCard,router,switch,accesspoint", label: "NETWORK (ALL)" },
-      { value: "networkCard", label: "network card" },
+      { value: "networkCard", label: "network card (internal/usb)" },
       { value: "router", label: "router" },
       { value: "switch", label: "switch" },
       { value: "accesspoint", label: "accesspoint" },
