@@ -90,7 +90,15 @@ main {
   grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
   gap: 12px;
 }
-.sidebar-btns-container {
+.floating-top-icons-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  top: 20px;
+  right: 14px;
+}
+.floating-bottom-icons-container {
   position: fixed;
   bottom: 20px;
   right: 14px;
@@ -108,16 +116,39 @@ main {
   font-size: 28px;
   padding-top: 8px;
 }
-.sidebar-btn {
+.floating-icon {
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--light-green);
   border-radius: 50%;
+  user-select: none;
+  padding-bottom: 4px;
+}
+.floating-top-icon {
+  font-size: 28px;
+  background-color: transparent;
+  color: var(--light-green);
+}
+.status-icon .tooltip {
+  display: flex;
+  flex-direction: column;
+  font-weight: normal;
+  text-align: left;
+  font-size: 16px;
+  left: -204px;
+  top: -4px;
+  padding: 8px;
+}
+.status-icon {
+  &:hover .tooltip {
+    visibility: visible;
+  }
+}
+.floating-bottom-icon {
   width: 48px;
   height: 48px;
-  user-select: none;
+  background-color: var(--light-green);
 }
 .loader {
   width: 32px;
@@ -199,7 +230,7 @@ footer {
       flex: 1;
     }
   }
-  .sidebar-btns-container {
+  .floating-bottom-icons-container {
     left: 14px;
     .scrollup-btn {
       padding-top: 12px;

@@ -4,9 +4,10 @@ import Card from "../../components/Card/Card.jsx";
 import CartOverlay from "../../components/CartOverlay/CartOverlay.jsx";
 import FiltersContainer from "./FiltersContainer.jsx";
 import { generateQueryStatement } from "../../Utils.js";
-import SidebarContainer from "./SidebarContainer.jsx";
 import Footer from "./Footer.jsx";
 import { sortOptions } from "../../constants.js";
+import FloatingTopIcons from "./FloatingTopIcons.jsx";
+import FloatingBottomIcons from "./FloatingBottomIcons.jsx";
 
 function HomePage() {
   const [filters, setFilters] = useState({
@@ -80,7 +81,8 @@ function HomePage() {
         {loading && products?.length > 0 && <span className="loader scrolling-loader"></span>}
       </main>
       <Footer />
-      <SidebarContainer hasScrolledDown={hasScrolledDown} setCartShown={setCartShown} />
+      <FloatingTopIcons />
+      <FloatingBottomIcons hasScrolledDown={hasScrolledDown} setCartShown={setCartShown} />
       {cartShown && (
         <CartOverlay cartProducts={cartProducts} setCartProducts={setCartProducts} setCartShown={setCartShown} />
       )}
