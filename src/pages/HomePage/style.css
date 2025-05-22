@@ -139,6 +139,8 @@ main {
   left: -204px;
   top: -4px;
   padding: 8px;
+  cursor: auto;
+  user-select: text;
 }
 .status-icon {
   &:hover .tooltip {
