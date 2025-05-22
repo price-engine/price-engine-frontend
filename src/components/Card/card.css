@@ -28,18 +28,10 @@
     visibility: visible;
   }
 }
-.tooltip {
-  visibility: hidden;
+.card-name-container .tooltip {
   width: 100%;
-  background-color: #27b06a;
-  color: #fff;
-  text-align: center;
-  padding: 4px;
-  border-radius: 6px;
-  position: absolute;
   left: 0;
   top: -80px;
-  z-index: 1;
 }
 .card h4 {
   overflow: hidden;

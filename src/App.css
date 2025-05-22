@@ -19,7 +19,16 @@ img {
   /* fixes img inside anchor not aligned with other flex elements (4px difference) */
   vertical-align: bottom;
 }
-
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  background-color: #27b06a;
+  color: #fff;
+  text-align: center;
+  padding: 4px;
+  border-radius: 6px;
+  z-index: 1;
+}
 input[type="number"] {
   outline: none;
   border-radius: 6px;
