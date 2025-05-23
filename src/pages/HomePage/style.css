@@ -123,7 +123,6 @@ main {
   align-items: center;
   border-radius: 50%;
   user-select: none;
-  padding-bottom: 4px;
 }
 .floating-top-icon {
   font-size: 28px;
@@ -234,9 +233,6 @@ footer {
   }
   .floating-bottom-icons-container {
     left: 14px;
-    .scrollup-btn {
-      padding-top: 12px;
-    }
   }
   #search-btn {
     height: 40px;
