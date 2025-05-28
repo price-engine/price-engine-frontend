@@ -66,7 +66,9 @@ function HomePage() {
     <div className="app">
       <header className="app-header">
         <h1 className="">Price Engine Best Hardware Prices in Egypt</h1>
-        <img className="app-logo" src="/logo.png" alt="Price Engine" />
+        <div className="app-logo-container">
+          <img className="app-logo" src="/logo.png" alt="Price Engine" />
+        </div>
         <FiltersContainer search={search} filters={filters} setFilters={setFilters} />
       </header>
       <main>

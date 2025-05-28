@@ -1,7 +1,3 @@
-:root {
-  --dark-green: #339462;
-  --light-green: rgb(39, 197, 116);
-}
 * {
   box-sizing: border-box;
   /*Removes blue highlight when tapping on a touch device*/
@@ -29,6 +25,14 @@ img {
   border-radius: 6px;
   z-index: 1;
 }
+.shop-logo {
+  width: 60px;
+  max-height: 100%;
+  filter: drop-shadow(0px 0.5px 0 black);
+}
+[dark-theme="true"] .shop-logo {
+  filter: drop-shadow(0 0.5px 0 white);
+}
 input[type="number"] {
   outline: none;
   border-radius: 6px;
@@ -37,15 +41,17 @@ input[type="number"] {
 }
 .combobox {
   border-radius: 6px;
-  color: black;
   font-size: 18px;
 }
 
 input {
-  border: 2px solid hsl(0, 0%, 90%);
+  border: 2px solid var(--border-color);
   border-radius: 6px;
 }
-input:focus {
+[dark-theme="true"] input {
+  background-color: var(--secondary-dark-background-color);
+}
+input:focus, input:hover {
   border: 2px solid var(--light-green);
 }
 

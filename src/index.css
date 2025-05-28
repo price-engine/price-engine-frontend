@@ -1,3 +1,21 @@
+:root {
+  --dark-green: #339462;
+  --light-green: #25bb6e;
+  --primary-background-color: #f7f7f7; /* For body and large areas */
+  --border-color: hsl(0, 0%, 90%);
+  --primary-text-color: black;
+  --closebtn-background-color: lightgrey;
+  --combobox-option-background-color: white;
+}
+[dark-theme="true"] {
+  color-scheme: dark;
+  --primary-background-color: #1c1b22;
+  --secondary-dark-background-color: #26252f; /* For small elements (lighter than the primary) */
+  --border-color: hsl(0, 0%, 60%);
+  --primary-text-color: white;
+  --closebtn-background-color: grey;
+  --combobox-option-background-color: var(--secondary-dark-background-color);
+}
 html {
   scroll-behavior: smooth;
 }
@@ -5,10 +23,9 @@ html {
 html:has(.cart-overlay-container) {
   overflow: hidden;
 }
-
 body {
   margin: 0;
-  background-color: #f7f7f7;
+  background-color: var(--primary-background-color);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;

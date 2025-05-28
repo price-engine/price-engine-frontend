@@ -57,6 +57,18 @@ export default function FiltersContainer({ search, filters, setFilters }) {
           value={filters.sort}
           onChange={(e) => setFilters((oldFilters) => ({ ...oldFilters, sort: e }))}
           styles={comboboxStyle}
+          theme={(theme) => {
+            console.log(theme);
+            return {
+              ...theme,
+              borderRadius: 0,
+              colors: {
+                ...theme.colors,
+                neutral0: "var(--combobox-option-background-color)",
+                neutral80: "var(--primary-text-color)",
+              },
+            };
+          }}
         />
         <input
           type="number"

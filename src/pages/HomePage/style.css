@@ -1,4 +1,5 @@
 .app {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -10,6 +11,26 @@
   height: 240px;
   padding: 12px 0;
 }
+[dark-theme="true"] .app-logo {
+  filter: drop-shadow(0 0 2px var(--light-green));
+  clip-path: inset(0 -12px 36% -12px);
+}
+.app-logo-container {
+  position: relative;
+}
+[dark-theme="true"] .app-logo-container::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: -4px;
+  background: url("/logo.png");
+  background-size: contain;
+  clip-path: inset(156px 0 0 0);
+  filter: brightness(0) invert(100%);
+}
+
 h1 {
   font-size: 0;
 }
@@ -192,7 +213,7 @@ footer {
       filter: contrast(0) invert(25%) sepia(22%) saturate(6931%) hue-rotate(197deg) contrast(85%);
     }
     .github-icon:hover {
-      filter: brightness(0);
+      filter: brightness(0%) drop-shadow(0 0 1px white);
     }
   }
 }
@@ -233,6 +254,7 @@ footer {
   }
   .floating-bottom-icons-container {
     left: 14px;
+    right: auto;
   }
   #search-btn {
     height: 40px;

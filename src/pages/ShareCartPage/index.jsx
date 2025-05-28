@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { CartCard } from "../../components/CartOverlay/CartOverlay.jsx";
 import "./style.css";
+import FloatingTopIcons from "../HomePage/FloatingTopIcons.jsx";
 
 export default function ShareCartPage() {
   let params = useParams();
@@ -14,6 +15,7 @@ export default function ShareCartPage() {
 
   return (
     <>
+      <FloatingTopIcons />
       {cartProducts.length > 0 && (
         <div className="share-page">
           <a href="https://price-engine.com/">

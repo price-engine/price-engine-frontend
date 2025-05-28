@@ -186,7 +186,9 @@ export const comboboxStyle = {
   control: (baseStyles, state) => {
     return {
       ...baseStyles,
-      border: state.menuIsOpen ? "2px solid var(--light-green)" : "2px solid hsl(0, 0%, 90%)",
+      color: "black",
+      backgroundColor: "var(--combobox-option-background-color)",
+      border: state.menuIsOpen ? "2px solid var(--light-green)" : "2px solid var(--border-color)",
       borderRadius: "6px",
       "&:hover": {
         borderColor: "var(--light-green)",
@@ -194,10 +196,11 @@ export const comboboxStyle = {
     };
   },
   option: (baseStyles, state) => {
+    console.log(state);
     return {
       ...baseStyles,
-      color: state.isFocused ? "white" : "black",
-      backgroundColor: state.isFocused ? "var(--light-green)" : "white",
+      color: state.isFocused ? "white" : "var(--primary-text-color)",
+      backgroundColor: state.isFocused ? "var(--light-green)" : "var(--combobox-option-background-color)",
     };
   },
 };
