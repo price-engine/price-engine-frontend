@@ -261,3 +261,13 @@ footer {
     flex: 1 0 100%;
   }
 }
+
+@media (max-width: 460px) {
+  .socia-media-icons-container{
+    justify-content: center;
+    width: 100%;
+  }
+  footer {
+    column-gap: 24px;
+  }
+}

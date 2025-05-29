@@ -6,6 +6,7 @@
   --primary-text-color: black;
   --closebtn-background-color: lightgrey;
   --combobox-option-background-color: white;
+  --article-card-background-color: rgb(231, 231, 231);
 }
 [dark-theme="true"] {
   color-scheme: dark;
@@ -15,6 +16,7 @@
   --primary-text-color: white;
   --closebtn-background-color: grey;
   --combobox-option-background-color: var(--secondary-dark-background-color);
+  --article-card-background-color: var(--secondary-dark-background-color);
 }
 html {
   scroll-behavior: smooth;
