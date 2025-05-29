@@ -5,6 +5,7 @@
   min-height: 100vh;
   padding: 0 16px;
   text-align: center;
+  color: var(--primary-text-color);
   .article-card {
     width: min(100%, 900px);
     background-color: var(--article-card-background-color);

@@ -3,6 +3,7 @@
   left: 0;
   top: 0;
   width: 100vw;
+  color: var(--primary-text-color);
   animation: cart-overlay-darken 0.25s ease-in-out forwards;
 
   .cart-overlay {

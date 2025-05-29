@@ -13,7 +13,7 @@
   --primary-background-color: #1c1b22;
   --secondary-dark-background-color: #26252f; /* For small elements (lighter than the primary) */
   --border-color: hsl(0, 0%, 60%);
-  --primary-text-color: white;
+  --primary-text-color: rgb(245,245,245);
   --closebtn-background-color: dimgrey;
   --combobox-option-background-color: var(--secondary-dark-background-color);
   --article-card-background-color: var(--secondary-dark-background-color);
