@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { CartCard } from "../../components/CartOverlay/CartOverlay.jsx";
 import "./style.css";
 import FloatingTopIcons from "../HomePage/FloatingTopIcons.jsx";
+import Footer from "../HomePage/Footer.jsx";
 
 export default function ShareCartPage() {
   let params = useParams();
@@ -18,9 +19,9 @@ export default function ShareCartPage() {
       <FloatingTopIcons />
       {cartProducts.length > 0 && (
         <div className="share-page">
-          <a href="https://price-engine.com/">
+          <Link to="/" className="app-logo-container">
             <img className="app-logo" src="/logo.png" alt="Price Engine" />
-          </a>
+          </Link>
           <div className="cards-container">
             {cartProducts.map((product, i) => {
               return <CartCard product={product} key={product.url} />;
@@ -35,6 +36,7 @@ export default function ShareCartPage() {
                 .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}{" "}
             EGP
           </h3>
+          <Footer />
         </div>
       )}
     </>
