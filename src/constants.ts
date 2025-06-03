@@ -164,7 +164,7 @@ export const categories: Category[] = [
   {
     label: "Miscellaneous",
     options: [
-      { value: "software", label: "software" },
+      { value: "software", label: "software", alternativeLabel: "serial,key,program,games" },
       { value: "cleaning", label: "cleaning" },
       { value: "ups", label: "ups" },
       { value: "powerStrip", label: "power strip" },
