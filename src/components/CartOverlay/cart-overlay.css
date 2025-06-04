@@ -5,7 +5,7 @@
   width: 100vw;
   color: var(--primary-text-color);
   animation: cart-overlay-darken 0.25s ease-in-out forwards;
-
+  z-index: 1;
   .cart-overlay {
     position: relative;
     display: flex;
