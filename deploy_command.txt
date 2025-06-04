@@ -1,1 +1,1 @@
-put -r build /var/www/html/price-engine-frontend
+put -r ./build/ /var/www/price-engine-frontend
