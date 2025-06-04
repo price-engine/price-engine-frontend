@@ -8,6 +8,7 @@
   color: var(--primary-text-color);
   .article-card {
     width: min(100%, 900px);
+    margin-bottom: auto;
     background-color: var(--article-card-background-color);
     border-radius: 6px;
     padding: 12px;
