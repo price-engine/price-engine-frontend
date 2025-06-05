@@ -80,11 +80,15 @@ export const categories: Category[] = [
       { value: "ssd,ssdSata,ssdM2", label: "ssd (sata+m.2)", alternativeLabel: "nvme" },
       { value: "ssdSata", label: "ssd sata" },
       { value: "ssdM2", label: "ssd m.2", alternativeLabel: "nvme" },
-      { value: "hdd", label: "hdd", alternativeLabel: "hard"},
-      { value: "hddUsed", label: "hdd (used)", alternativeLabel: "hard"},
+      { value: "hdd", label: "hdd", alternativeLabel: "hard" },
+      { value: "hddUsed", label: "hdd (used)", alternativeLabel: "hard" },
       { value: "memoryCard", label: "memory card" },
-      { value: "flashDrives", label: "flash drives", alternativeLabel: "usb"},
-      { value: "externalStorage,externalHdd,externalSsd", label: "External Storage (ssd/hdd)", alternativeLabel: "usb"},
+      { value: "flashDrives", label: "flash drives", alternativeLabel: "usb" },
+      {
+        value: "externalStorage,externalHdd,externalSsd",
+        label: "External Storage (ssd/hdd)",
+        alternativeLabel: "hard usb",
+      },
       { value: "rack", label: "rack" },
     ],
   },
@@ -118,7 +122,7 @@ export const categories: Category[] = [
       {
         value: "phoneAccessories,smartwatch,powerbank,mobileCharger,carCharger,holder,pen,earphone,earbuds",
         label: "PHONE ACCESSORIES (ALL)",
-        alternativeLabel: "band"
+        alternativeLabel: "band",
       },
       { value: "smartwatch", label: "smartwatch / band" },
       { value: "powerbank", label: "powerbank" },
@@ -133,7 +137,11 @@ export const categories: Category[] = [
   {
     label: "Console",
     options: [
-      { value: "gamingConsole,games", label: "console / games", alternativeLabel: "playstation xbox nitendo wii switch steam deck handheld" },
+      {
+        value: "gamingConsole,games",
+        label: "console / games",
+        alternativeLabel: "ps1 ps2 ps3 ps4 playstation xbox nitendo wii switch steam deck handheld",
+      },
       { value: "consoleCharger", label: "console charger" },
       { value: "consoleAccount", label: "console account" },
     ],
@@ -147,7 +155,7 @@ export const categories: Category[] = [
       { value: "appleWatch", label: "apple watch" },
       { value: "airpod", label: "airpod" },
       { value: "applePencil", label: "apple pencil" },
-      { value: "appleAdaptor", label: "apple adaptor", alternativeLabel: "charger"},
+      { value: "appleAdaptor", label: "apple adaptor", alternativeLabel: "charger" },
       { value: "airtag", label: "airtag" },
     ],
   },
