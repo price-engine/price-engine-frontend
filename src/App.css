@@ -2,6 +2,14 @@
   box-sizing: border-box;
   /*Removes blue highlight when tapping on a touch device*/
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", -apple-system,
+    BlinkMacSystemFont, "Apple Color Emoji" !important;
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
 }
 *:focus-within,
 *:focus {
@@ -51,7 +59,8 @@ input {
 [dark-theme="true"] input {
   background-color: var(--secondary-dark-background-color);
 }
-input:focus, input:hover {
+input:focus,
+input:hover {
   border: 2px solid var(--light-green);
 }
 
