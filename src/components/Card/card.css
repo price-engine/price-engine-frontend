@@ -27,9 +27,12 @@
 }
 .card .card-price {
   margin-top: auto;
+  padding-bottom: 12px;
   color: var(--primary-text-color);
 }
 .card-name-container {
+  padding-top: 16px;
+  padding-bottom: 24px;
   position: relative;
   &:hover .tooltip {
     visibility: visible;
