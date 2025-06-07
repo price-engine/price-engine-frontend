@@ -58,7 +58,6 @@ export default function FiltersContainer({ search, filters, setFilters }) {
           onChange={(e) => setFilters((oldFilters) => ({ ...oldFilters, sort: e }))}
           styles={comboboxStyle}
           theme={(theme) => {
-            console.log(theme);
             return {
               ...theme,
               borderRadius: 0,

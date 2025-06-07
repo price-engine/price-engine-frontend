@@ -204,7 +204,6 @@ export const comboboxStyle = {
     };
   },
   option: (baseStyles, state) => {
-    console.log(state);
     return {
       ...baseStyles,
       color: state.isFocused ? "white" : "var(--primary-text-color)",

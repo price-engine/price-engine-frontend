@@ -27,7 +27,6 @@ export default function ComboBox({ selectedItem, setSelectedItem, placeholder1, 
       placeholder={placeholder}
       styles={comboboxStyle}
       theme={(theme) => {
-        console.log(theme);
         return {
           ...theme,
           borderRadius: 0,
