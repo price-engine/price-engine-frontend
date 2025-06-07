@@ -20,8 +20,8 @@ export default function FloatingTopIcons() {
       <button className="floating-icon floating-top-icon status-icon">
         ⓘ
         <div className="tooltip">
-          <div>Current Shops: {scrapeStatus?.currentShopCount ?? "..."}</div>
-          <div>Latest Update: {scrapeStatus?.latestScrapeDate ?? "............."}</div>
+          <div>Current Shops: {scrapeStatus?.currentShopCount ?? "........."}</div>
+          <div>Latest Update: {scrapeStatus?.latestScrapeDate ?? "..................."}</div>
         </div>
       </button>
       <button className="floating-icon floating-top-icon" onClick={() => toggleTheme(true)}>
