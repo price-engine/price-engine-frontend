@@ -29,7 +29,7 @@ export default function CartOverlay({ cartProducts, setCartProducts, setCartShow
         <div className="cart-header">
           <h3>Cart</h3>
           <span className="close-btn" onClick={() => setCartShown(false)}>
-            ✖
+            &#x2715;
           </span>
         </div>
         <div className="cards-container">
