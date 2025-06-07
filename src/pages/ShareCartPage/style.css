@@ -8,4 +8,7 @@
     width: min(100%, 900px);
     flex: 1;
   }
+  .price-total {
+    margin-top: 12px;
+  }
 }
