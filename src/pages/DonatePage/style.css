@@ -4,7 +4,6 @@
   align-items: center;
   min-height: 100vh;
   padding: 0 16px;
-  text-align: center;
   color: var(--primary-text-color);
   .article-card {
     width: min(100%, 900px);
@@ -16,10 +15,16 @@
       margin-bottom: 8px;
     }
     .donation-links-container {
-      margin-top: 24px;
+      display: flex;
+      gap: 28px;
+    }
+    ul {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      padding-left: 12px;
+      li {
+        padding: 1px 0;
+      }
     }
   }
   footer {

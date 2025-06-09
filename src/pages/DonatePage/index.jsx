@@ -11,8 +11,9 @@ export default function DonatePage() {
           <img className="app-logo" src="/logo.png" alt="Price Engine" />
         </Link>
         <div className="article-card">
+          <p></p>
           <h3>Donation Methods</h3>
-          <p>Support keeping the website alive</p>
+          {/* <span>Support keeping the website alive:</span> */}
           <div className="donation-links-container">
             <a href="https://ko-fi.com/price_engine" target="_blank" rel="nofollow noopener">
               KO-FI
@@ -24,6 +25,16 @@ export default function DonatePage() {
               INSTAPAY
             </a>
           </div>
+          <br/>
+          <h3>Why Donate ?</h3>
+          <p>Price-Engine needs donation to stay alive because:</p>
+          <br/>
+          <ul>
+            <li>Price-Engine is <strong>Free!</strong> But:</li>
+            <li>Price-Engine <strong>pays</strong> for server rent.</li>
+            <li>Price-Engine <strong>pays</strong> for the domain name.</li>
+            <li>Price-Engine developers spend <strong>hours</strong> everyday to improve the website.</li>
+          </ul>
         </div>
         <Footer />
       </div>
