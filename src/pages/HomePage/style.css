@@ -45,11 +45,6 @@ h1 {
   flex: 1;
   gap: 8px;
 }
-.search-input-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
 .price-inputs-container {
   display: flex;
   gap: 8px;

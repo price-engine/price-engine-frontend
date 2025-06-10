@@ -20,17 +20,15 @@ export default function FiltersContainer({ search, filters, setFilters }) {
   }
   return (
     <div className="inputs-container">
-      <div className="search-input-container">
-        <input
-          id="search-input"
-          type="search"
-          placeholder="Search..."
-          name="search"
-          onKeyUp={handleSearchInput}
-          onChange={(e) => setFilters((oldFilters) => ({ ...oldFilters, searchValue: e.target.value.trim() }))}
-          autoFocus
-        />
-      </div>
+      <input
+        id="search-input"
+        type="search"
+        placeholder="Search..."
+        name="search"
+        onKeyUp={handleSearchInput}
+        onChange={(e) => setFilters((oldFilters) => ({ ...oldFilters, searchValue: e.target.value.trim() }))}
+        autoFocus
+      />
       <div className="governorates-categories-container">
         <ComboBox
           className="governorates-combobox"
