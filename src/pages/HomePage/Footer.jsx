@@ -12,16 +12,6 @@ export default function Footer() {
           <img src={githubIcon} className="github-icon" alt="Github Profile" />
         </a>
       </span>
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSd_K3p83JOWs6tXmFxc8I3rBROoUK7Cr26llXlellUep1Sk2A/viewform?usp=header"
-        target="_blank"
-        rel="nofollow noopener"
-      >
-        ✍🏻 Send feedback
-      </a>
-      <Link to="/donate" rel="nofollow noopener">
-        ❤️ Donate
-      </Link>
       <p>Made with ❤️ © 2025 Price Engine.</p>
     </footer>
   );

@@ -2,11 +2,13 @@ import { Link } from "react-router";
 import FloatingTopIcons from "../HomePage/FloatingTopIcons";
 import Footer from "../HomePage/Footer";
 import "./style.css";
+import Navbar from "../../components/Navbar/Navbar";
 export default function DonatePage() {
   return (
     <>
-      <FloatingTopIcons />
+      <Navbar />
       <div className="article-page">
+        <FloatingTopIcons />
         <Link className="app-logo-container" to="/">
           <img className="app-logo" src="/logo.png" alt="Price Engine" />
         </Link>
@@ -25,15 +27,23 @@ export default function DonatePage() {
               INSTAPAY
             </a>
           </div>
-          <br/>
+          <br />
           <h3>Why Donate ?</h3>
           <p>Price-Engine needs donation to stay alive because:</p>
-          <br/>
+          <br />
           <ul>
-            <li>Price-Engine is <strong>Free!</strong> But:</li>
-            <li>Price-Engine <strong>pays</strong> for server rent.</li>
-            <li>Price-Engine <strong>pays</strong> for the domain name.</li>
-            <li>Price-Engine developers spend <strong>hours</strong> everyday to improve the website.</li>
+            <li>
+              Price-Engine is <strong>Free!</strong> But:
+            </li>
+            <li>
+              Price-Engine <strong>pays</strong> for server rent.
+            </li>
+            <li>
+              Price-Engine <strong>pays</strong> for the domain name.
+            </li>
+            <li>
+              Price-Engine developers spend <strong>hours</strong> everyday to improve the website.
+            </li>
           </ul>
         </div>
         <Footer />

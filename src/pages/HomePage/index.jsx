@@ -8,6 +8,7 @@ import Footer from "./Footer.jsx";
 import { sortOptions } from "../../constants.js";
 import FloatingTopIcons from "./FloatingTopIcons.jsx";
 import FloatingBottomIcons from "./FloatingBottomIcons.jsx";
+import Navbar from "../../components/Navbar/Navbar.jsx";
 
 function HomePage() {
   const [filters, setFilters] = useState({
@@ -36,7 +37,7 @@ function HomePage() {
     setLoading(true);
     setErrorSentence("");
     let queryStatement = generateQueryStatement(filters, page.current);
-    return fetch("https://api.price-engine.com/search?" + new URLSearchParams(queryStatement))
+    return fetch("http://127.0.0.1:3001/search?" + new URLSearchParams(queryStatement))
       .then((res) => res.json())
       .then((newProducts) => {
         setProducts((oldProducts) => [...oldProducts, ...newProducts]);
@@ -63,32 +64,35 @@ function HomePage() {
     return () => window.removeEventListener("scroll", handleScrolling);
   }, [products, loading]);
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1 className="">Price Engine Best Hardware Prices in Egypt</h1>
-        <div className="app-logo-container">
-          <img className="app-logo" src="/logo.png" alt="Price Engine" />
-        </div>
-        <FiltersContainer search={search} filters={filters} setFilters={setFilters} />
-      </header>
-      <main>
-        {loading && <span className="loader"></span>}
-        {errorSentence !== "" && <p className="no-results">{errorSentence}</p>}
-        <div className="main-cards-container">
-          {products?.map((product, i) => {
-            // if (!isDuplicateProduct(product, products.at(i + 1)))
-            return <Card product={product} setCartProducts={setCartProducts} key={product._id} />;
-          })}
-        </div>
-        {loading && products?.length > 0 && <span className="loader scrolling-loader"></span>}
-      </main>
-      <Footer />
-      <FloatingTopIcons />
-      <FloatingBottomIcons hasScrolledDown={hasScrolledDown} setCartShown={setCartShown} />
-      {cartShown && (
-        <CartOverlay cartProducts={cartProducts} setCartProducts={setCartProducts} setCartShown={setCartShown} />
-      )}
-    </div>
+    <>
+      <Navbar search={search} filters={filters} setFilters={setFilters} />
+      <div className="app">
+        <header className="app-header">
+          <h1 className="">Price Engine Best Hardware Prices in Egypt</h1>
+          <div className="app-logo-container">
+            <img className="app-logo" src="/logo.png" alt="Price Engine" />
+          </div>
+          <FiltersContainer search={search} filters={filters} setFilters={setFilters} />
+        </header>
+        <main>
+          {loading && <span className="loader"></span>}
+          {errorSentence !== "" && <p className="no-results">{errorSentence}</p>}
+          <div className="main-cards-container">
+            {products?.map((product, i) => {
+              // if (!isDuplicateProduct(product, products.at(i + 1)))
+              return <Card product={product} setCartProducts={setCartProducts} key={product._id} />;
+            })}
+          </div>
+          {loading && products?.length > 0 && <span className="loader scrolling-loader"></span>}
+        </main>
+        <Footer />
+        <FloatingTopIcons />
+        <FloatingBottomIcons hasScrolledDown={hasScrolledDown} setCartShown={setCartShown} />
+        {cartShown && (
+          <CartOverlay cartProducts={cartProducts} setCartProducts={setCartProducts} setCartShown={setCartShown} />
+        )}
+      </div>
+    </>
   );
 }
 function containsArabic(text) {

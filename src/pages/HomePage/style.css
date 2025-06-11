@@ -4,16 +4,14 @@
   flex-direction: column;
   text-align: center;
   padding: 0 15%;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--navbar-height));
 }
 .app-logo {
-  width: 240px;
-  height: 240px;
-  padding: 12px 0;
+  width: 220px;
 }
 [dark-theme="true"] .app-logo {
   filter: drop-shadow(0 0 2px var(--light-green));
-  clip-path: inset(0 -12px 36% -12px);
+  clip-path: inset(-12px -12px 23px -12px);
 }
 .app-logo-container {
   position: relative;
@@ -24,10 +22,10 @@
   display: block;
   width: 100%;
   height: 100%;
-  top: -4px;
+  top: 0px;
   background: url("/logo.png");
   background-size: contain;
-  clip-path: inset(156px 0 0 0);
+  clip-path: inset(82px 0 0 0);
   filter: brightness(0) invert(100%);
 }
 
@@ -36,8 +34,9 @@ h1 {
 }
 .app-header {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
+  margin: 32px 0;
 }
 .inputs-container {
   display: flex;
@@ -228,7 +227,8 @@ footer {
 @media (max-width: 1202px) {
   .app-header {
     flex-direction: column;
-    margin-bottom: 24px;
+    margin: 48px 0;
+    gap: 24px;
     .inputs-container {
       align-self: stretch;
     }

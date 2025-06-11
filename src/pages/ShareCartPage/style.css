@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--navbar-height));
   color: var(--primary-text-color);
   .cards-container {
     width: min(100%, 900px);

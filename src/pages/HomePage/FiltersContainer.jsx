@@ -25,6 +25,7 @@ export default function FiltersContainer({ search, filters, setFilters }) {
         type="search"
         placeholder="Search..."
         name="search"
+        value={filters?.searchValue}
         onKeyUp={handleSearchInput}
         onChange={(e) => setFilters((oldFilters) => ({ ...oldFilters, searchValue: e.target.value.trim() }))}
         autoFocus

@@ -4,17 +4,20 @@
   --primary-background-color: #f7f7f7; /* For body and large areas */
   --border-color: hsl(0, 0%, 90%);
   --primary-text-color: black;
+  --navbar-hover-background: lightgrey;
   --closebtn-background-color: lightgrey;
   --combobox-option-background-color: white;
   --article-card-background-color: rgb(231, 231, 231);
+  --navbar-height: 64px;
 }
 [dark-theme="true"] {
   color-scheme: dark;
   --primary-background-color: #1c1b22;
   --secondary-dark-background-color: #26252f; /* For small elements (lighter than the primary) */
-  --border-color: hsl(0, 0%, 60%);
+  --border-color: grey;
   --primary-text-color: rgb(245, 245, 245);
   --closebtn-background-color: dimgrey;
+  --navbar-hover-background: dimgrey;
   --combobox-option-background-color: var(--secondary-dark-background-color);
   --article-card-background-color: var(--secondary-dark-background-color);
 }
