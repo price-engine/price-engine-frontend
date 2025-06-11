@@ -13,6 +13,7 @@ export default function Footer() {
         </a>
       </span>
       <p>Made with ❤️ © 2025 Price Engine.</p>
+      <Link to="/privacy-policy">privacy policy</Link>
     </footer>
   );
 }
