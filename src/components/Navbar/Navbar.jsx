@@ -13,7 +13,7 @@ export default function Navbar({ search, filters, setFilters }) {
     return () => window.removeEventListener("scroll", handleScrolling);
   }, []);
   function handleScrolling() {
-    setInputShown(window.scrollY >= 400 && window.innerWidth > 712);
+    setInputShown(window.scrollY >= 200 && window.innerWidth > 712);
   }
   function handleSearchInput(e) {
     if (e.key === "Enter") {
