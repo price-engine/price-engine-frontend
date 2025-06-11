@@ -4,6 +4,7 @@ import { CartCard } from "../../components/CartOverlay/CartOverlay.jsx";
 import "./style.css";
 import FloatingTopIcons from "../HomePage/FloatingTopIcons.jsx";
 import Footer from "../HomePage/Footer.jsx";
+import Navbar from "../../components/Navbar/Navbar.jsx";
 
 export default function ShareCartPage() {
   let params = useParams();
@@ -16,9 +17,10 @@ export default function ShareCartPage() {
 
   return (
     <>
-      <FloatingTopIcons />
+      <Navbar />
       {cartProducts.length > 0 && (
         <div className="share-page">
+          <FloatingTopIcons />
           <Link to="/" className="app-logo-container">
             <img className="app-logo" src="/logo.png" alt="Price Engine" />
           </Link>
