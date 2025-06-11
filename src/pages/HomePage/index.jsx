@@ -37,7 +37,7 @@ function HomePage() {
     setLoading(true);
     setErrorSentence("");
     let queryStatement = generateQueryStatement(filters, page.current);
-    return fetch("http://127.0.0.1:3001/search?" + new URLSearchParams(queryStatement))
+    return fetch("https://api.price-engine.com/search?" + new URLSearchParams(queryStatement))
       .then((res) => res.json())
       .then((newProducts) => {
         setProducts((oldProducts) => [...oldProducts, ...newProducts]);
