@@ -30,7 +30,7 @@ export default function Navbar({ search, filters, setFilters }) {
     <div className="navbar-container">
       <div className="navbar">
         <div className="navbar-links-container">
-          <Link to="/" className={`navbar-link ${pathname === "/" && "active"}`}>
+          <Link to="/" className={`navbar-link ${pathname === "/" ? "active" : ""}`}>
             Home
           </Link>
         </div>
@@ -54,7 +54,7 @@ export default function Navbar({ search, filters, setFilters }) {
           </div>
         )}
         <div className="navbar-links-container">
-          <Link to="/donate" className={`navbar-link ${pathname === "/donate" && "active"}`}>
+          <Link to="/donate" className={`navbar-link ${pathname === "/donate" ? "active" : ""}`}>
             Donate
           </Link>
           <a
