@@ -60,6 +60,19 @@ export const categories: Category[] = [
     ],
   },
   {
+    label: "Apple",
+    options: [
+      { value: "macbook", label: "macbook", alternativeLabel: "laptop" },
+      { value: "iphone", label: "iphone" },
+      { value: "ipad", label: "ipad" },
+      { value: "appleWatch", label: "apple watch" },
+      { value: "airpod", label: "airpod" },
+      { value: "applePencil", label: "apple pencil" },
+      { value: "appleAdaptor", label: "apple adaptor", alternativeLabel: "charger" },
+      { value: "airtag", label: "airtag" },
+    ],
+  },
+  {
     label: "Laptop",
     options: [
       { value: "laptop", label: "laptop" },
@@ -144,19 +157,6 @@ export const categories: Category[] = [
       },
       { value: "consoleCharger", label: "console charger" },
       { value: "consoleAccount", label: "console account" },
-    ],
-  },
-  {
-    label: "Apple",
-    options: [
-      { value: "macbook", label: "macbook", alternativeLabel: "laptop" },
-      { value: "iphone", label: "iphone" },
-      { value: "ipad", label: "ipad" },
-      { value: "appleWatch", label: "apple watch" },
-      { value: "airpod", label: "airpod" },
-      { value: "applePencil", label: "apple pencil" },
-      { value: "appleAdaptor", label: "apple adaptor", alternativeLabel: "charger" },
-      { value: "airtag", label: "airtag" },
     ],
   },
   {
