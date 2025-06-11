@@ -20,13 +20,11 @@ export default function Navbar({ search, filters, setFilters }) {
       if (window.innerWidth < 843) e.target.blur();
       search();
       window.scrollTo(0, 0);
-      alert("fsfs");
     }
   }
   function handleSearch() {
     search();
     window.scrollTo(0, 0);
-    alert("fsfs");
   }
   return (
     <div className="navbar-container">
