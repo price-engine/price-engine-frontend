@@ -79,3 +79,19 @@ button {
     filter: saturate(110%);
   }
 }
+.app-logo-container {
+  position: relative;
+  margin: 64px 0;
+}
+[dark-theme="true"] .app-logo-container::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background: url("/logo.png");
+  background-size: contain;
+  clip-path: inset(82px 0 0 0);
+  filter: brightness(0) invert(100%);
+}
