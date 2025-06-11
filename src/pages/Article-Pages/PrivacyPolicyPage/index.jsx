@@ -52,13 +52,17 @@ export default function PrivacyPolicy() {
             directly by the third parties through their servers and is subject to their privacy policies. This website
             has no access or control over these cookies, scripts and/or web beacons that may be used by third parties.
           </p>
+          <br />
           <p>
             I have included links on this website for your use and reference. I am not responsible for the privacy
             policies on these websites. You should be aware that the privacy policies of these websites may differ from
             my own.
           </p>
-          <p>Link to the privacy policy of third-party service providers used by the website</p>
-          <p>No third parties are being used till the moment.</p>
+          <br />
+          <p>Link to the privacy policy of third-party service providers used by the website:</p>
+          <ul>
+            <li>No third parties are being used till the moment.</li>
+          </ul>
           <br />
           <h3>Security</h3>
           <p>
@@ -78,7 +82,11 @@ export default function PrivacyPolicy() {
           <h3>Contact Information</h3>
           <p>
             For any questions or concerns regarding the privacy policy, please send me an email at
-            <a href="mailto:contact.price.engine@gmail.com" target="_blank" rel="nofollow noopener"> contact.price.engine@gmail.com</a>.
+            <a href="mailto:contact.price.engine@gmail.com" target="_blank" rel="nofollow noopener">
+              {" "}
+              contact.price.engine@gmail.com
+            </a>
+            .
           </p>
         </div>
         <Footer />
