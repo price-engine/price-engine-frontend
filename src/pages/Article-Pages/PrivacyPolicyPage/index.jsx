@@ -35,7 +35,11 @@ export default function PrivacyPolicy() {
           <p>
             - Aggregated Usage Data: Non-personal data, such as the number of unique visitors and page views, which
             cannot be linked to an individual. Medama determines unique visitors using a privacy-friendly method that
-            avoids storing personal identifiers (see https://oss.medama.io/methodology/unique-visitors for details).
+            avoids storing personal identifiers (see{" "}
+            <a href="https://oss.medama.io/methodology/unique-visitors" target="_blank" rel="nofollow noopener">
+              https://oss.medama.io/methodology/unique-visitors
+            </a>{" "}
+            for details).
           </p>
           <br />
           <h3>Cookies</h3>
@@ -74,7 +78,7 @@ export default function PrivacyPolicy() {
           <h3>Contact Information</h3>
           <p>
             For any questions or concerns regarding the privacy policy, please send me an email at
-            <a href="mailto:contact.price.engine@gmail.com"> contact.price.engine@gmail.com</a>.
+            <a href="mailto:contact.price.engine@gmail.com" target="_blank" rel="nofollow noopener"> contact.price.engine@gmail.com</a>.
           </p>
         </div>
         <Footer />
