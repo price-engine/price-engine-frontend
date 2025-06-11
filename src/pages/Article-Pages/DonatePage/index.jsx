@@ -1,8 +1,9 @@
 import { Link } from "react-router";
-import FloatingTopIcons from "../HomePage/FloatingTopIcons";
-import Footer from "../HomePage/Footer";
+import FloatingTopIcons from "../../HomePage/FloatingTopIcons";
+import Footer from "../../HomePage/Footer";
+import Navbar from "../../../components/Navbar/Navbar";
+import "../article-style.css";
 import "./style.css";
-import Navbar from "../../components/Navbar/Navbar";
 export default function DonatePage() {
   return (
     <>
@@ -13,9 +14,7 @@ export default function DonatePage() {
           <img className="app-logo" src="/logo.png" alt="Price Engine" />
         </Link>
         <div className="article-card">
-          <p></p>
           <h3>Donation Methods</h3>
-          {/* <span>Support keeping the website alive:</span> */}
           <div className="donation-links-container">
             <a href="https://ko-fi.com/price_engine" target="_blank" rel="nofollow noopener">
               KO-FI

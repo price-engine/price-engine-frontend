@@ -6,9 +6,7 @@
   min-height: calc(100vh - var(--navbar-height));
   padding: 0 16px;
   color: var(--primary-text-color);
-  .app-logo-container {
-    margin: 64px 0;
-  }
+  
   .article-card {
     width: min(100%, 900px);
     margin-bottom: auto;
@@ -17,10 +15,6 @@
     padding: 12px;
     h3 {
       margin-bottom: 8px;
-    }
-    .donation-links-container {
-      display: flex;
-      gap: 28px;
     }
     ul {
       display: flex;
