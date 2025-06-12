@@ -27,7 +27,7 @@ export default function FiltersContainer({ search, filters, setFilters }) {
         name="search"
         value={filters?.searchValue}
         onKeyUp={handleSearchInput}
-        onChange={(e) => setFilters((oldFilters) => ({ ...oldFilters, searchValue: e.target.value.trim() }))}
+        onChange={(e) => setFilters((oldFilters) => ({ ...oldFilters, searchValue: e.target.value }))}
         autoFocus
       />
       <div className="governorates-categories-container">

@@ -13,7 +13,7 @@ export function scrollWhenKeyboardShown(cssSelector, block = "start") {
 
 export function generateQueryStatement(filters, page) {
   let queryStatement = {
-    name: filters.searchValue === "" ? "" : `"${filters.searchValue.replaceAll(/\s+/gm, '""')}"`,
+    name: filters.searchValue === "" ? "" : `"${filters.searchValue.trim().replaceAll(/\s+/gm, '""')}"`,
     page: page,
     sortAsc: filters.sort.value,
   };

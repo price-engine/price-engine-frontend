@@ -33,6 +33,9 @@ export default function Navbar({ search, filters, setFilters }) {
           <Link to="/" className={`navbar-link ${pathname === "/" ? "active" : ""}`}>
             Home
           </Link>
+          <Link to="/how-to-search" className={`navbar-link ${pathname === "/how-to-search" ? "active" : ""}`}>
+            How to Search
+          </Link>
         </div>
 
         {inputShown && (
@@ -44,7 +47,7 @@ export default function Navbar({ search, filters, setFilters }) {
               name="search"
               onKeyUp={handleSearchInput}
               value={filters?.searchValue}
-              onChange={(e) => setFilters((oldFilters) => ({ ...oldFilters, searchValue: e.target.value.trim() }))}
+              onChange={(e) => setFilters((oldFilters) => ({ ...oldFilters, searchValue: e.target.value }))}
               autoFocus
             />
             <button className="navbar-link active" href="#" onClick={handleSearch}>
