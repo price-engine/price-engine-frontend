@@ -93,7 +93,7 @@ main {
   display: flex;
   align-items: center;
   gap: 8px;
-  top: 20px;
+  top: 16px;
   right: 14px;
 }
 .floating-bottom-icons-container {
@@ -211,6 +211,7 @@ footer {
   .app-header {
     flex-direction: column;
     gap: 24px;
+    margin-bottom: 28px;
     .inputs-container {
       align-self: stretch;
     }
