@@ -29,7 +29,6 @@ export default function DonatePage() {
           <br />
           <h3>Why Donate ?</h3>
           <p>Price-Engine needs donation to stay alive because:</p>
-          <br />
           <ul>
             <li>
               Price-Engine is <strong>Free!</strong> But:

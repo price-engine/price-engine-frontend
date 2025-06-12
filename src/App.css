@@ -81,14 +81,10 @@ button {
 }
 .app-logo-container {
   position: relative;
-  margin: 64px 0;
+  margin-top: 64px;
+  margin-bottom: 28px;
 }
-@media (max-width: 1202px) {
-  .app-logo-container {
-    margin-top: 64px;
-    margin-bottom: 28px;
-  }
-}
+
 [dark-theme="true"] .app-logo-container::before {
   position: absolute;
   content: "";
