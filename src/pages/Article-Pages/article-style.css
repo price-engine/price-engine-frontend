@@ -6,7 +6,7 @@
   min-height: calc(100vh - var(--navbar-height));
   padding: 0 16px;
   color: var(--primary-text-color);
-  
+
   .article-card {
     width: min(100%, 900px);
     margin-bottom: auto;
@@ -16,9 +16,8 @@
     h3 {
       margin-bottom: 8px;
     }
-    ul {
-      display: flex;
-      flex-direction: column;
+    ul,
+    ol {
       padding-left: 12px;
       li {
         padding: 1px 0;
