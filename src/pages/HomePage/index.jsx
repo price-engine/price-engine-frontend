@@ -16,8 +16,8 @@ function HomePage() {
     governorate: [],
     category: [],
     sort: sortOptions[0],
-    minPrice: NaN,
-    maxPrice: NaN,
+    minPrice: "",
+    maxPrice: "",
   });
   const [products, setProducts] = useState([]);
   const [hasScrolledDown, setHasScrolledDown] = useState(false);

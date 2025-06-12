@@ -17,8 +17,8 @@ export function generateQueryStatement(filters, page) {
     page: page,
     sortAsc: filters.sort.value,
   };
-  if (!isNaN(filters.minPrice)) queryStatement.minPrice = filters.minPrice;
-  if (!isNaN(filters.maxPrice)) queryStatement.maxPrice = filters.maxPrice;
+  if (filters.minPrice) queryStatement.minPrice = filters.minPrice;
+  if (filters.maxPrice) queryStatement.maxPrice = filters.maxPrice;
   if (filters.category.length) queryStatement.category = filters.category?.map((cat) => cat.value);
   if (filters.governorate.length)
     queryStatement.location = filters.governorate?.map((gov) => gov.value).concat("Online");
