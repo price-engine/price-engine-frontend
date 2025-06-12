@@ -13,7 +13,7 @@ export default function HowToSearchPage() {
         <Link className="app-logo-container" to="/">
           <img className="app-logo" src="/logo.png" alt="Price Engine" />
         </Link>
-        <div className="article-card" style={{ direction: "rtl" }}>
+        <div lang="ar" className="article-card" style={{ direction: "rtl" }}>
           <h3 style={{ textAlign: "center" }}>خد بالك وانت بتبحث</h3>
           <br />
           <ol>
@@ -29,7 +29,6 @@ export default function HowToSearchPage() {
                 <li>
                   "14600K" <strong>مش</strong> هتظهر نتائج ل "14600KF".
                 </li>
-                
                 <li>
                   "9060xt" <strong>مش</strong> هتظهر نتائج ل
                   <p style={{ direction: "ltr", display: "inline" }}>"9060 xt" </p>.
