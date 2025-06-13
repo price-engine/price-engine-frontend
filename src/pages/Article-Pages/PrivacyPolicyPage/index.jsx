@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
           <img className="app-logo" src="/logo.png" alt="Price Engine" />
         </Link>
         <div className="article-card">
-          <h3>Privacy Policy</h3>
+          <h2>Price-Engine Privacy Policy</h2>
           <p>
             Khalid Waleed operates the website "Price Engine" at https://price-engine.com. I take your privacy
             seriously. To better protect your privacy, I provide this privacy policy notice explaining the way your

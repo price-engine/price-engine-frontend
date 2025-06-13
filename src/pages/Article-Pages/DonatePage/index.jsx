@@ -27,7 +27,7 @@ export default function DonatePage() {
             </a>
           </div>
           <br />
-          <h3>Why Donate ?</h3>
+          <h3>Why Donate to Price-Engine ?</h3>
           <p>Price-Engine needs donation to stay alive because:</p>
           <ul>
             <li>
