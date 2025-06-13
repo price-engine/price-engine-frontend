@@ -2,7 +2,6 @@
   position: sticky;
   top: 0;
   z-index: 2;
-  width: 100vw;
   background-color: var(--primary-background-color);
   box-shadow: 0 2px 2px var(--border-color) !important;
   .navbar {
