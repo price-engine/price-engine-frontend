@@ -48,7 +48,6 @@ export default function Navbar({ search, filters, setFilters }) {
               onKeyUp={handleSearchInput}
               value={filters?.searchValue}
               onChange={(e) => setFilters((oldFilters) => ({ ...oldFilters, searchValue: e.target.value }))}
-              autoFocus
             />
             <button className="navbar-link active" href="#" onClick={handleSearch}>
               <img class="favicon" alt="" src="/favicon.ico" />
