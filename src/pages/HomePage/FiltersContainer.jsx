@@ -55,6 +55,7 @@ export default function FiltersContainer({ search, filters, setFilters }) {
           options={sortOptions}
           value={filters.sort}
           onChange={(e) => setFilters((oldFilters) => ({ ...oldFilters, sort: e }))}
+          isSearchable={false}
           styles={comboboxStyle}
           theme={(theme) => {
             return {
