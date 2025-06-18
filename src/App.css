@@ -53,6 +53,7 @@ input[type="number"] {
 }
 
 input {
+  color: var(--primary-text-color) !important;
   border: 2px solid var(--border-color);
   border-radius: 6px;
 }
