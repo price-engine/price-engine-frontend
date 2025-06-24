@@ -1,12 +1,12 @@
 {
   "name": "price-engine-frontend",
   "private": true,
-  "version": "1.6.5",
+  "version": "1.6.6",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "deploy": "sftp -b deploy_command.txt -i privateKey.key ktt@price-engine.com",
+    "deploy": "sftp -o StrictHostKeyChecking=no -b deploy_command.txt -i privateKey.key ktt@price-engine.com",
     "lint": "eslint .",
     "preview": "vite preview"
   },
