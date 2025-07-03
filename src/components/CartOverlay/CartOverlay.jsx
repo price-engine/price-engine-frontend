@@ -75,43 +75,38 @@ export function CartCard({ product, setCartProducts, editMode }) {
   }
   return (
     <div className="cart-card">
-      <img className="product-image" src={product.imgUrl} referrerPolicy="no-referrer" alt={product.name} />
-      <div className="name-container">
+      <div className="cart-card-top">
+        <img className="product-image" src={product.imgUrl} referrerPolicy="no-referrer" alt={product.name} />
         <a className="name" title={product.name} href={product.url} target="_blank" rel="nofollow noopener">
           {product.name}
         </a>
-        <a href={product.shop.url} className="shop-logo-container" target="_blank" rel="nofollow noopener">
-          <img
-            src={shopLogos[product.shop.id]}
-            className="shop-logo"
-            title={product.shop.name}
-            alt={product.shop.name}
-            referrerPolicy="no-referrer"
-          />
-        </a>
+        {editMode && (
+          <button className="remove-btn" onClick={handleRemoveCard}>
+            ⛔
+          </button>
+        )}
       </div>
-      <h3 className="price">{product.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} EGP</h3>
-      {editMode && (
-        <button className="remove-btn" onClick={handleRemoveCard}>
-          ⛔
-        </button>
-      )}
-
-      <div className="quantity-container">
-        {editMode && (
-          <span className="decrease-quantity-btn" onClick={() => handleQuantityChange(-1)}>
-            -
-          </span>
-        )}
-        <p className="quantity">
-          {!editMode && "Quantity: "}
-          {product.quantity ?? 1}
-        </p>
-        {editMode && (
-          <span className="increase-quantity-btn" onClick={() => handleQuantityChange(1)}>
-            +
-          </span>
-        )}
+      <div className="cart-card-bottom">
+        <a href={product.shop.url} className="shop-logo-container" target="_blank" rel="nofollow noopener">
+          <img src={shopLogos[product.shop.id]} className="shop-logo" title={product.shop.name} alt={product.shop.name} referrerPolicy="no-referrer" />
+        </a>
+        <div className="quantity-container">
+            {editMode && (
+              <span className="decrease-quantity-btn" onClick={() => handleQuantityChange(-1)}>
+                -
+              </span>
+            )}
+            <p className="quantity">
+              {!editMode && "Quantity: "}
+              {product.quantity ?? 1}
+            </p>
+            {editMode && (
+              <span className="increase-quantity-btn" onClick={() => handleQuantityChange(1)}>
+                +
+              </span>
+            )}
+          </div>
+        <h3 className="price">{product.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} EGP</h3>
       </div>
     </div>
   );
