@@ -1,4 +1,5 @@
 .cart-overlay-container {
+  height: 100%;
   position: fixed;
   left: 0;
   top: 0;
@@ -12,7 +13,7 @@
     flex-direction: column;
     gap: 24px;
     width: min(560px, 100%);
-    height: 100vh;
+    height: 100%;
     background-color: var(--primary-background-color);
     animation: cart-slide 0.25s ease-in-out forwards;
     .price-total {
