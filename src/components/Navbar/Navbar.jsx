@@ -9,8 +9,10 @@ export default function Navbar({ search, filters, setFilters }) {
     window.scrollTo(0, 0);
   }, [pathname]);
   useEffect(() => {
-    window.addEventListener("scroll", handleScrolling, { passive: true });
-    return () => window.removeEventListener("scroll", handleScrolling);
+    if (pathname === "/") {
+      window.addEventListener("scroll", handleScrolling, { passive: true });
+      return () => window.removeEventListener("scroll", handleScrolling);
+    }
   }, []);
   function handleScrolling() {
     setInputShown(window.scrollY >= 200 && window.innerWidth > 712);
