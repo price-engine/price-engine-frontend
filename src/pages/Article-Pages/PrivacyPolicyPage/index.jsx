@@ -21,15 +21,15 @@ export default function PrivacyPolicy() {
             personal information is collected and used.
           </p>
           <br />
-          <h3>Data We Collect</h3>
+          <h3>Collected Data</h3>
           <p>
-            We use Medama Analytics, an open-source, privacy-focused tool, to collect limited data about how users
-            interact with our website. Medama is designed to prioritize user privacy and does not use cookies, IP
-            addresses, or other identifiers that could track individuals. Specifically, we collect:
+            I use Medama Analytics, an open-source, privacy-focused tool, to collect limited data about how users
+            interact with my website. Medama is designed to prioritize user privacy and does not use cookies, IP
+            addresses, or other identifiers that could track individuals. Specifically, I collect:
           </p>
           <br />
           <p>
-            - Search Queries: The terms or phrases you enter into our search functionality to understand what users are
+            - Search Queries: The terms or phrases you enter into the search functionality to understand what users are
             looking for.
           </p>
           <p>
