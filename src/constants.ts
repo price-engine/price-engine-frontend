@@ -81,7 +81,7 @@ export const categories: Category[] = [
       { value: "laptopRam", label: "laptop ram" },
       { value: "laptopBattery", label: "laptop battery" },
       { value: "laptopCharger", label: "laptop charger" },
-      { value: "laptopStand", label: "laptop stand" },
+      { value: "laptopStand", label: "laptop stand/fan" },
       { value: "laptopFan", label: "laptop fan" },
     ],
   },
@@ -163,7 +163,7 @@ export const categories: Category[] = [
     label: "Networking",
     options: [
       { value: "network,networkCard,router,switch,accesspoint", label: "NETWORK (ALL)" },
-      { value: "networkCard", label: "network card (internal/usb)" },
+      { value: "networkCard", label: "network card (internal/usb)", alternativeLabel: "wireless wifi" },
       { value: "router", label: "router" },
       { value: "switch", label: "switch" },
       { value: "accesspoint", label: "accesspoint" },
