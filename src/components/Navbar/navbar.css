@@ -96,3 +96,8 @@
     font-size: 14px;
   }
 }
+@media (max-width: 375px) {
+  .navbar-container .navbar {
+    font-size: 13px;
+  }
+}
