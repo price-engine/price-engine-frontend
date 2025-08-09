@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer>
       <span className="socia-media-icons-container">
-        <a href="https://www.linkedin.com/in/khalidwaleed0/" target="_blank" rel="nofollow noopener">
+        <a href="https://www.linkedin.com/company/price-engine/" target="_blank" rel="nofollow noopener">
           <img src={linkedinIcon} className="linkedin-icon" alt="LinkedIn Profile" />
         </a>
       </span>
