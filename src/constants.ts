@@ -32,7 +32,10 @@ export const governorates = [
   { value: "South_Sinai", label: "South Sinai" },
   { value: "Suez", label: "Suez" },
 ];
-type Category = { label: String; options: { value: String; label: String; alternativeLabel?: String }[] };
+type Category = {
+  label: String;
+  options: { value: String; label: String; alternativeLabel?: String }[];
+};
 export const categories: Category[] = [
   {
     label: "PC Parts",
@@ -88,7 +91,11 @@ export const categories: Category[] = [
   {
     label: "Storage",
     options: [
-      { value: "storage,ssd,ssdSata,ssdM2,hdd", label: "INTERNAL STORAGE (ALL)", alternativeLabel: "nvme hard" },
+      {
+        value: "storage,ssd,ssdSata,ssdM2,hdd",
+        label: "INTERNAL STORAGE (ALL)",
+        alternativeLabel: "nvme hard",
+      },
       { value: "storageUsed,hddUsed", label: "STORAGE USED (ALL)" },
       { value: "ssd,ssdSata,ssdM2", label: "ssd (sata+m.2)", alternativeLabel: "nvme" },
       { value: "ssdSata", label: "ssd sata" },
@@ -110,7 +117,7 @@ export const categories: Category[] = [
     options: [
       {
         value:
-          "accessories,keyboardMouseCombo,keyboard,wirelessKeyboard,mouse,wirelessMouse,mousePad,headphone,webcam,microphone,speaker,gamepad,dongle,cable,converter",
+          "accessories,keyboardMouseCombo,keyboard,wirelessKeyboard,mouse,wirelessMouse,mousePad,headphone,earphone,iem,webcam,microphone,speaker,gamepad,dongle,cable,converter",
         label: "ACCESSORIES (ALL)",
       },
       { value: "keyboardMouseCombo", label: "keyboard+mouse combo" },
@@ -133,7 +140,8 @@ export const categories: Category[] = [
       { value: "tablet,ipad", label: "tablet" },
       { value: "graphicTablet", label: "graphic tablet" },
       {
-        value: "phoneAccessories,smartwatch,powerbank,mobileCharger,carCharger,holder,pen,earphone,earbuds",
+        value:
+          "phoneAccessories,smartwatch,powerbank,mobileCharger,carCharger,holder,pen,earphone,iem,earbuds",
         label: "PHONE ACCESSORIES (ALL)",
         alternativeLabel: "band",
       },
@@ -143,7 +151,8 @@ export const categories: Category[] = [
       { value: "carCharger", label: "car charger" },
       { value: "holder", label: "holder" },
       { value: "pen", label: "pen" },
-      { value: "earphone", label: "earphone" },
+      { value: "iem", label: "iem" },
+      { value: "earphone,iem", label: "earphone" },
       { value: "earbuds", label: "earbuds" },
     ],
   },
@@ -179,7 +188,7 @@ export const categories: Category[] = [
       { value: "battery", label: "battery" },
       { value: "tvBox", label: "tvBox" },
       { value: "printer_scanner", label: "printer/scanner" },
-      { value: "catridge,toner", label: "catridge", alternativeLabel: "printer ink toner laser"},
+      { value: "catridge,toner", label: "catridge", alternativeLabel: "printer ink toner laser" },
       { value: "barcode", label: "barcode/cashier", alternativeLabel: "point of sale pos receipt" },
       { value: "projector", label: "projector" },
       { value: "presenter", label: "presenter" },
@@ -207,7 +216,9 @@ export const comboboxStyle = {
     return {
       ...baseStyles,
       color: state.isFocused ? "white" : "var(--primary-text-color)",
-      backgroundColor: state.isFocused ? "var(--light-green)" : "var(--combobox-option-background-color)",
+      backgroundColor: state.isFocused
+        ? "var(--light-green)"
+        : "var(--combobox-option-background-color)",
     };
   },
 };
