@@ -72,7 +72,7 @@ function HomePage() {
           <a className="app-logo-container">
             <img className="app-logo" src="/logo.png" alt="Price Engine" />
           </a>
-          <FiltersContainer search={search} filters={filters} setFilters={setFilters} />
+          <FiltersContainer search={search} isLoading={loading} filters={filters} setFilters={setFilters} />
         </header>
         <main>
           {loading && <span className="loader"></span>}

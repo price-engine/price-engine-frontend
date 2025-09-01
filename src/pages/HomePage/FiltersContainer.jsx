@@ -4,10 +4,10 @@ import ComboBox from "../../components/ComboBox/ComboBox.jsx";
 import { scrollWhenKeyboardShown } from "../../Utils.js";
 import { useRef } from "react";
 
-export default function FiltersContainer({ search, filters, setFilters }) {
+export default function FiltersContainer({ search, isLoading, filters, setFilters }) {
   const searchBtnRef = useRef();
   function handleSearchInput(e) {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !isLoading) {
       if (window.innerWidth < 843) e.target.blur();
       searchBtnRef.current.click();
     }
@@ -92,12 +92,12 @@ export default function FiltersContainer({ search, filters, setFilters }) {
         <button
           ref={searchBtnRef}
           id="search-btn"
-          onClick={search}
+          onClick={() => !isLoading && search()}
           data-m:click={`searchValue=${filters.searchValue};selectedGovernorate=${filters.governorate.map(
             (g) => g.label
-          )};selectedCategory=${filters.category.map((c) => c.label)};selectedSort=${filters.sort.label};minPrice=${
-            filters.minPrice
-          };maxPrice=${filters.maxPrice}`}
+          )};selectedCategory=${filters.category.map((c) => c.label)};selectedSort=${
+            filters.sort.label
+          };minPrice=${filters.minPrice};maxPrice=${filters.maxPrice}`}
         >
           <img className="favicon" src="/favicon.ico" alt="" />
           Search
