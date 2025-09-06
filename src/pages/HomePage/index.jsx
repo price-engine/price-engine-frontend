@@ -31,9 +31,9 @@ function HomePage() {
     isLastPage.current = false;
     page.current = 1;
     setProducts([]);
-    fetchProducts();
+    fetchProducts(true);
   }
-  async function fetchProducts() {
+  async function fetchProducts(isNewSearch = false) {
     setLoading(true);
     setErrorSentence("");
     let queryStatement = generateQueryStatement(filters, page.current);
@@ -42,7 +42,7 @@ function HomePage() {
       .then((newProducts) => {
         setProducts((oldProducts) => [...oldProducts, ...newProducts]);
         if (newProducts.length === 0) isLastPage.current = true;
-        if (newProducts.length + products.length === 0) {
+        if (isNewSearch && newProducts.length === 0) {
           if (containsArabic(filters.searchValue)) setErrorSentence("No results found. Try to type in English.");
           else setErrorSentence("No results found. Check the spelling and spaces or use fewer words.");
         }
